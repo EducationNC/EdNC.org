@@ -1,0 +1,39 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "scripts/vendor/*.js",
+        "../bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js",
+        "../bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js",
+        "../bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js",
+        "../bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js",
+        "scripts/data-viz.js",
+        "scripts/main.js"
+      ]
+    },
+    "wp-embed-template.js": {
+      "files": [
+        "scripts/wp-embed-template.js"
+      ]
+    },
+    "bootstrap.modal.js": {
+      "files": [
+        "../bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"
+      ]
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "main": true
+    },
+    "admin.css": {
+      "files": [
+        "styles/admin.scss"
+      ]
+    }
+  },
+  "config": {
+    "devUrl": "http://hhvm.hgv.test"
+  }
+}

@@ -1,0 +1,91 @@
+.friendraiser-wrap {
+  transition: transform .3s;
+
+  .search-pushed & {
+    transform: translate3d(0, 55px, 0);
+  }
+}
+
+.friendraiser-banner {
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+
+  & > img {
+    position: absolute;
+    z-index: 0;
+    min-width: 100%;
+    max-width: none;
+    width: auto;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+  }
+
+  .container, .row {
+    height: 100%;
+  }
+
+  h2, p {
+    color: $white;
+    text-shadow: 0px 0px 58px rgba(0,0,0,0.76);
+    text-align: left;
+    margin-top: 20px;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    p {
+      transform: none;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    height: 133px;
+
+    .col-md-7 {
+      height: 100%;
+      position: relative;
+    }
+
+    p {
+      margin-top: 0px;
+    }
+  }
+}
+
+.friendraiser-ask {
+  background: $ice-dark;
+
+  .row {
+    height: 100%;
+  }
+
+  .dark {
+    height: 100%;
+    background: $ice-dark;
+  }
+
+  .gradient {
+    height: 100%;
+    @include gray-gradient-right;
+  }
+
+  @media (max-width: $screen-sm-max) {
+    .container {
+      width: 100%;
+    }
+  }
+}
+
+.progress {
+  border-radius: 0;
+  background: $white;
+  box-shadow: none;
+  height: 43px;
+}
+
+.progress-bar {
+  @include green-gradient-right;
+  line-height: 43px;
+}

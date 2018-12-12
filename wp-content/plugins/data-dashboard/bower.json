@@ -1,0 +1,56 @@
+{
+  "name": "data-dashboard",
+  "homepage": "https://github.com/isabisa",
+  "authors": [
+    "Alisa Herr"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass": "3.3.6"
+  },
+  "overrides": {
+    "bootstrap-sass": {
+      "main": [
+        "./assets/stylesheets/bootstrap/_variables.scss",
+        "./assets/stylesheets/bootstrap/_mixins.scss",
+        "./assets/stylesheets/bootstrap/_normalize.scss",
+        "./assets/stylesheets/bootstrap/_print.scss",
+        "./assets/stylesheets/bootstrap/_glyphicons.scss",
+        "./assets/stylesheets/bootstrap/_scaffolding.scss",
+        "./assets/stylesheets/bootstrap/_type.scss",
+        "./assets/stylesheets/bootstrap/_code.scss",
+        "./assets/stylesheets/bootstrap/_grid.scss",
+        "./assets/stylesheets/bootstrap/_tables.scss",
+        "./assets/stylesheets/bootstrap/_forms.scss",
+        "./assets/stylesheets/bootstrap/_buttons.scss",
+        "./assets/stylesheets/bootstrap/_panels.scss",
+        "./assets/stylesheets/bootstrap/_wells.scss",
+        "./assets/stylesheets/bootstrap/_close.scss",
+        "./assets/stylesheets/bootstrap/_modals.scss",
+        "./assets/stylesheets/bootstrap/_tooltip.scss",
+        "./assets/stylesheets/bootstrap/_popovers.scss",
+        "./assets/stylesheets/bootstrap/_carousel.scss",
+        "./assets/stylesheets/bootstrap/_utilities.scss",
+        "./assets/stylesheets/bootstrap/_responsive-utilities.scss",
+        "./assets/javascripts/bootstrap/transition.js",
+        "./assets/javascripts/bootstrap/alert.js",
+        "./assets/javascripts/bootstrap/button.js",
+        "./assets/javascripts/bootstrap/carousel.js",
+        "./assets/javascripts/bootstrap/collapse.js",
+        "./assets/javascripts/bootstrap/dropdown.js",
+        "./assets/javascripts/bootstrap/modal.js",
+        "./assets/javascripts/bootstrap/tooltip.js",
+        "./assets/javascripts/bootstrap/popover.js",
+        "./assets/javascripts/bootstrap/scrollspy.js",
+        "./assets/javascripts/bootstrap/tab.js",
+        "./assets/javascripts/bootstrap/affix.js",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.eot",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.svg",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.ttf",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff",
+        "./assets/fonts/bootstrap/glyphicons-halflings-regular.woff2"
+      ]
+    }
+  }
+}

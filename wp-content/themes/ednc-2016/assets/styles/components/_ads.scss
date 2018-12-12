@@ -1,0 +1,30 @@
+.ad-wrap {
+  background: $pearl;
+  margin-bottom: 2em;
+
+  p {
+    margin: 0;
+    font-family: $font-family-sans-serif;
+  }
+
+  a {
+    color: $jet;
+  }
+}
+
+.email-signup-callout {
+  background-image: url('../images/emails.jpg');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  position: relative;
+  padding-bottom: 56.25%;
+  margin-bottom: 2em;
+  height: 0;
+  overflow: hidden;
+  clear: both;
+
+  @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    padding-bottom: 25%;
+  }
+}

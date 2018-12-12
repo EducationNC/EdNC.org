@@ -1,0 +1,6 @@
+#menu-posts-reach-nc-poll ul li:last-child{
+	display:none;
+}
+.post-type-reach-nc-poll #columndiv{
+	display:none;
+}

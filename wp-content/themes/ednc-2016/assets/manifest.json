@@ -1,0 +1,48 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "scripts/vendor/*.js",
+        "scripts/main.js"
+      ],
+      "main": true
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "main": true
+    },
+    "embed.css": {
+      "files": [
+        "styles/embed.scss"
+      ]
+    },
+    "wp-embed-template.js": {
+      "files": [
+        "scripts/wp-embed-template.js"
+      ]
+    },
+    "customizer.js": {
+      "files": [
+        "scripts/customizer.js"
+      ]
+    },
+    "admin.js": {
+      "files": [
+        "scripts/admin.js"
+      ]
+    },
+    "admin.css": {
+      "files": [
+        "styles/admin.scss"
+      ]
+    },
+    "jquery.js": {
+      "bower": ["jquery"]
+    }
+  },
+  "config": {
+    "devUrl": "http://local.wordpress.dev"
+  }
+}

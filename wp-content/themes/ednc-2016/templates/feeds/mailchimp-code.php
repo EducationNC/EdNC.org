@@ -1,0 +1,16 @@
+*|FEEDBLOCK:https://www.ednc.org/feed/features|**|FEEDITEMS:[$count=10]|**|FEEDITEM:IMAGE|*
+*|FEEDITEM:TITLE|* *|FEEDITEM:CONTENT|*
+
+By *|FEEDITEM:AUTHOR|* | *|FEEDITEM:DATE:M j, Y|*
+*|FEEDITEM:CONTENT_FULL|*
+
+Full story »
+*|END:FEEDITEMS|**|END:FEEDBLOCK|*
+
+*|FEEDBLOCK:https://www.ednc.org/feed/recent|**|FEEDITEMS:[$count=10]|*
+*|FEEDITEM:TITLE|* *|FEEDITEM:CONTENT|*
+
+By *|FEEDITEM:AUTHOR|* | *|FEEDITEM:DATE:M j, Y|*
+*|FEEDITEM:CONTENT_FULL|*
+
+*|END:FEEDITEMS|* *|END:FEEDBLOCK|*

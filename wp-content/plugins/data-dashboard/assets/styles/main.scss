@@ -1,0 +1,163 @@
+// Automatically injected Bower dependencies via wiredep (never manually edit this block)
+// bower:scss
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_variables.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_mixins.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_normalize.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_print.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_glyphicons.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_scaffolding.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_type.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_code.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_grid.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_tables.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_forms.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_buttons.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_panels.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_wells.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_close.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_modals.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_tooltip.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_popovers.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_carousel.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_utilities.scss";
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/_responsive-utilities.scss";
+// endbower
+
+@import "icons";
+@import "loading";
+@import "social-share-buttons";
+
+.data-dashboard {
+  img {
+    max-width: 100%;
+  }
+
+  .append-on-affix {
+    display: none;
+    position: absolute;
+    bottom: -40px;
+    left: 10px;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .affix {
+    @media (min-width: $screen-md-min) {
+      top: 20px;
+      position: fixed;
+      max-width: 273px;
+
+      .append-on-affix {
+        display: block;
+      }
+    }
+  }
+
+  .affix-bottom {
+    @media (min-width: $screen-md-min) {
+      position: absolute;
+
+      .append-on-affix {
+        display: block;
+      }
+    }
+  }
+
+  .nav {
+    li {
+      margin: 0;
+
+      li {
+        margin: 0;
+        display: block;
+
+        a {
+          list-style-type: square;
+          list-style-position: inside;
+          display: list-item;
+        }
+      }
+    }
+
+    a {
+      padding: 10px 5px 7px;
+      text-decoration: none;
+      position: relative;
+    }
+
+    .children {
+      a {
+        padding-left: 20px;
+      }
+    }
+  }
+}
+
+.dashboard-section {
+  margin-bottom: 4em;
+}
+
+.data-section {
+  .fancy-number {
+    display: block;
+    line-height: 1em;
+    font-size: 48px;
+    transition: font-size .3s ease-in-out;
+  }
+
+  .print {
+    @media print {
+      display: block !important;
+    }
+  }
+
+  @media (min-width: $screen-md-min) {
+    display: flex;
+
+    .col-md-3 {
+      display: flex;
+    }
+  }
+
+  .embed-credit {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    width: 100px;
+
+    @media print {
+      &:after {
+        content: none !important;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+
+    @media (min-width: $screen-md-min) {
+      top: auto;
+      right: auto;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  .wp-embed {
+    position: relative;
+
+    .icon-external-link {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -75%, 0);
+      color: #fff;
+      text-shadow: 0 0 10px rgba(43, 46, 52, .6);
+      font-size: 90px;
+      text-decoration: none;
+      pointer-events: none;
+    }
+  }
+}

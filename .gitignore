@@ -31,6 +31,8 @@ wp-content/themes/ednc-roots/assets/app/vendor/*
 wp-content/themes/ednc-roots/.sass-cache
 wp-content/themes/ednc-roots/lib/salsa-auth.php
 wp-content/themes/ednc-2016/lib/facebook-auth.php
+wp-content/themes/ednc-2016/bower_components
+wp-content/themes/ednc-2016/node_modules
 wp-content/themes/twentyseventeen
 
 # ignorable plugin files
@@ -66,6 +68,7 @@ wp-content/mysql.sql
 /local-config.php
 /readme.html
 /wp-activate.php
+/wp-config-1.php
 /wp-app.php
 /wp-atom.php
 /wp-blog-header.php

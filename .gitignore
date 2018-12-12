@@ -33,7 +33,7 @@ wp-content/themes/ednc-roots/lib/salsa-auth.php
 wp-content/themes/ednc-2016/lib/facebook-auth.php
 wp-content/themes/ednc-2016/bower_components
 wp-content/themes/ednc-2016/node_modules
-wp-content/themes/twentyseventeen
+wp-content/themes/twentyseventeen/
 
 # ignorable plugin files
 wp-content/plugins/why-404/logs/*

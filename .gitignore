@@ -6,6 +6,7 @@
 *.swp
 
 .gitignore-1
+wp-config-1.php
 .htaccess
 sitemap.xml
 sitemap.xml.gz
@@ -24,6 +25,8 @@ wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
 wp-content/cache/*
 wp-content/cache/supercache/*
+wp-content/themes/ednc-2016/bower_components
+wp-content/themes/ednc-2016/node_modules
 
 # wpengine specific
 .smushit-status

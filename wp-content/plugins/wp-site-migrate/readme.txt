@@ -2,7 +2,7 @@
 Contributors: wpengine, blogvault, akshatc, taylor4484
 Tags: wpe, wpengine, migration
 Requires at least: 4.0
-Tested up to: 4.9.5
+Tested up to: 5.0
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -78,6 +78,12 @@ That's easy! [Signup here](http://wpengine.com/plans/).
 2. BlogVault dashboard showing live updates.
 
 == Changelog ==
+= 1.82 =
+* Updating tested upto 5.0
+
+= 1.77 =
+* Adding function_exists for getmyuid and get_current_user functions 
+
 = 1.76 =
 * Removing create_funtion for PHP 7.2 compatibility
 

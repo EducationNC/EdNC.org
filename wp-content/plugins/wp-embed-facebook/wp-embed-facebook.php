@@ -1,55 +1,59 @@
 <?php
-/*
+/**
+@author    Miguel Sirvent and Rahul Aryan
+@license   GPL-3.0+ https://www.gnu.org/licenses/gpl-3.0.txt
+@link      https://www.wpembedfb.com
+@package   WP Embed FB
+
+@wordpress-plugin
 Plugin Name: WP Embed Facebook
 Plugin URI: http://www.wpembedfb.com
-Description: Embed any public Facebook video, photo, album, event, page, comment, profile, or post. Add Facebook comments to all your site, insert Facebook social plugins (like, save, send, share, follow, quote, comments) anywhere on your site. View the <a href="http://www.wpembedfb.com/demo-site/" title="plugin website" target="_blank">demo site</a>.
+Description: Embed any public Facebook video, photo, album, event, page,
+comment, profile, or post. Add Facebook comments to all your site, insert
+Facebook social plugins (like, save, send, share, follow, quote, comments)
+anywhere on your site. View the <a href="https://wpembedfb.com/features" title="plugin website" target="_blank">features</a>.
 Author: Miguel Sirvent
-Version: 2.2.3
+Version: 3.0.1
 Author URI: http://www.wpembedfb.com
 Text Domain: wp-embed-facebook
-Domain Path: /lang
-*/
+GitHub Plugin URI: sigami/wp-embed-facebook
+ */
 
-/** @noinspection PhpIncludeInspection */
-require_once( plugin_dir_path( __FILE__ ) . 'lib/class-wp-embed-fb-plugin.php' );
-WP_Embed_FB_Plugin::hooks();
+namespace SIGAMI\WP_Embed_FB;
 
-/** @noinspection PhpIncludeInspection */
-require_once( WP_Embed_FB_Plugin::path() . 'lib/class-wef-widget.php' );
-/** @noinspection PhpIncludeInspection */
-require_once( WP_Embed_FB_Plugin::path() . 'lib/class-wef-social-plugins.php' );
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
+spl_autoload_register( __NAMESPACE__ . '\auto_loader' );
 
-/** @see WP_Embed_FB_Plugin::install */
-register_activation_hook( __FILE__, 'WP_Embed_FB_Plugin::install' );
+/**
+ * Plugin class autoloader.
+ *
+ * @param string $class_name Class name to load.
+ * @return void
+ */
+function auto_loader( $class_name ) {
+	if ( false !== strpos( $class_name, __NAMESPACE__ ) ) {
+		$dir = realpath( plugin_dir_path( __FILE__ ) ) . DIRECTORY_SEPARATOR . 'inc' . DIRECTORY_SEPARATOR;
+		require_once $dir . str_replace( [ __NAMESPACE__, '\\' ], '', $class_name ) . '.php';
+	}
+}
 
-/** @see WP_Embed_FB_Plugin::uninstall */
-register_uninstall_hook( __FILE__, 'WP_Embed_FB_Plugin::uninstall' );
+Plugin::instance( __FILE__ );
 
-/** @see WP_Embed_FB_Plugin::deactivate */
-register_deactivation_hook( __FILE__, 'WP_Embed_FB_Plugin::deactivate' );
+Magic_Embeds::instance();
 
-/** @noinspection PhpIncludeInspection */
-require_once( WP_Embed_FB_Plugin::path() . 'lib/class-wp-embed-fb.php' );
-
-/* Magic here */
-/** @noinspection PhpIncludeInspection */
-require_once( WP_Embed_FB_Plugin::path() . 'lib/class-wef-magic-embeds.php' );
-WEF_Magic_Embeds::hooks();
-
-
-if ( WP_Embed_FB_Plugin::get_option( 'auto_comments_active' ) === 'true' ) {
-	/** @noinspection PhpIncludeInspection */
-	require_once( WP_Embed_FB_Plugin::path() . 'lib/class-wef-comments.php' );
-	WEF_Comments::hooks();
+if ( Plugin::is_on( 'auto_comments_active' ) ) {
+	Comments::instance();
 }
 
 if ( is_admin() ) {
-	/** @noinspection PhpIncludeInspection */
-	require_once( WP_Embed_FB_Plugin::path() . 'lib/class-wp-embed-fb-admin.php' );
-	WP_Embed_FB_Admin::hooks();
-
-	/** @see WP_Embed_FB_Admin::add_action_link */
-	add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'WP_Embed_FB_Admin::add_action_link' );
+	Admin::instance();
 }
 
+//COMPATIBILITY
+include Plugin::path().'inc/deprecated/deprecated.php';
+
+//TODO change lightbox css to make it more hermetic

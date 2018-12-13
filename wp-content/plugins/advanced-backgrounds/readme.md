@@ -1,9 +1,9 @@
 # Advanced WordPress Backgrounds #
 * Contributors: nko
-* Tags: parallax, video, youtube, background, visual composer
+* Tags: parallax, video, youtube, background, gutenberg
 * Requires at least: 4.0.0
-* Tested up to: 4.9
-* Stable tag: 1.4.10
+* Tested up to: 5.0
+* Stable tag: 1.5.5
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Image backgrounds, YouTube / Vimeo / Local hosted video backgrounds with paralla
 
 ## Description ##
 
-AWB let you to use parallax backgrounds with images, videos, youtube and vimeo. [Gutenberg](https://wordpress.org/gutenberg/) and Visual Composer support.
+AWB let you to use parallax backgrounds with images, videos, youtube and vimeo. [Gutenberg](https://wordpress.org/gutenberg/) and WPBakery Page Builder support.
 
 #### Links ####
 
@@ -41,7 +41,7 @@ AWB let you to use parallax backgrounds with images, videos, youtube and vimeo. 
 * Stretch option. Will be useful on boxed websites.
 * Visual shortcode maker. You can create shortcode using visual builder
 * [Gutenberg](https://wordpress.org/gutenberg/) supported
-* __Visual Composer__ supported (extended row and col options + separate shortcode)
+* __WPBakery Page Builder__ supported (extended row and col options + separate shortcode)
 * Custom CSS offsets (paddings + margins)
 
 
@@ -75,34 +75,34 @@ Since the Gutenberg support `Wide` blocks, you can make stretch for AWB in theme
 
 1. Enable support for `Wide` blocks in theme. [Read here how](https://wordpress.org/gutenberg/handbook/extensibility/theme-support/#wide-alignment)
 2. Add this JS code to your theme or in 3rd-party plugin:
-```javascript
-(function ($) {
-    var $body = $('body');
+    ```javascript
+    (function ($) {
+        var $body = $('body');
 
-    // fullwidth gutenberg feature.
-    function stretchAWB() {
-        var wndW = $body.width();
-    
-        $('.nk-awb.alignfull > .nk-awb-wrap').each(function () {
-            var $this = $(this);
-    
-            var rect = this.getBoundingClientRect();
-            var left = rect.left;
-            var right = wndW - rect.right;
-    
-            var ml = parseFloat($this.css('margin-left') || 0);
-            var mr = parseFloat($this.css('margin-right') || 0);
+        // fullwidth gutenberg feature.
+        function stretchAWB() {
+            var wndW = $body.width();
 
-            $this.css({
-                'margin-left': ml - left,
-                'margin-right': mr - right,
+            $('.nk-awb.alignfull > .nk-awb-wrap').each(function () {
+                var $this = $(this);
+
+                var rect = this.getBoundingClientRect();
+                var left = rect.left;
+                var right = wndW - rect.right;
+
+                var ml = parseFloat($this.css('margin-left') || 0);
+                var mr = parseFloat($this.css('margin-right') || 0);
+
+                $this.css({
+                    'margin-left': ml - left,
+                    'margin-right': mr - right,
+                });
             });
-        });
-    }
-    stretchAWB();
-    $(window).on('resize orientationchange load', stretchAWB);
-}(jQuery));
-```
+        }
+        stretchAWB();
+        $(window).on('resize orientationchange load', stretchAWB);
+    }(jQuery));
+    ```
 Note: this code for example only, your theme may not work with it properly (it may not work correctly with theme sidebars). So, you will need to change this code manually depending on your theme styles.
 
 
@@ -112,11 +112,46 @@ Note: this code for example only, your theme may not work with it properly (it m
 2. Background image
 3. Background video
 4. Background parallax and Mouse parallax
-5. Extended Visual Composer ROW options
+5. Extended WPBakery Page Builder ROW options
 
 
 
 ## Changelog ##
+
+= 1.5.5 =
+
+* added file types limitations in image and self hosted videos selection
+
+= 1.5.4 =
+
+* updated Conditionize script
+* fixed usage of deprecated PanelColor
+
+= 1.5.3 =
+
+* fixed image fetch error in Gutenberg 4.2
+* changed color picker to Gutenberg component
+
+= 1.5.2 =
+
+* removed default paddings from AWB shortcode, keep it only for Gutenberg block
+
+= 1.5.1 =
+
+* fixed selected image preview in Inspector
+
+= 1.5.0 =
+
+* added default padding to the AWB block on frontend and in Gutenberg editor
+* added spacing options (paddings, margins) in Gutenberg block
+* added initialization AWB for dynamic content (AJAX loading)
+* improved editor styles with GhostKit grid
+* registered additional image sizes
+* fixed mouse parallax on mobile devices (acceleration calculated properly now)
+* fixed Gutenberg 4.0 number attribute type automatic convert
+* fixed Gutenberg 4.0 AWB block border
+* fixed image height calculation when block height > than window height
+* updated conditionize vendor script
 
 = 1.4.10 =
 
@@ -170,7 +205,7 @@ Note: this code for example only, your theme may not work with it properly (it m
 
 = 1.4.2 =
 
-* fixed adding styles from Visual Composer "Design Options" tab in AWB shortcode
+* fixed adding styles from WPBakery Page Builder "Design Options" tab in AWB shortcode
 
 = 1.4.1 =
 
@@ -180,8 +215,8 @@ Note: this code for example only, your theme may not work with it properly (it m
 
 * added support for [Gutenberg](https://wordpress.org/gutenberg/) blocks builder
 * added option to disable video on mobile devices
-* fixed Visual Composer and Stretch row JS error on mobile devices 
-* fixed Visual Composer icon position
+* fixed WPBakery Page Builder and Stretch row JS error on mobile devices 
+* fixed WPBakery Page Builder icon position
 * updated Jarallax to 1.10.1
 
 = 1.3.2 =
@@ -190,7 +225,7 @@ Note: this code for example only, your theme may not work with it properly (it m
 
 = 1.3.1 =
 
-* fixed parallax resize inside stretched Visual Composer row
+* fixed parallax resize inside stretched WPBakery Page Builder row
 
 = 1.3.0 =
 
@@ -218,8 +253,8 @@ Note: this code for example only, your theme may not work with it properly (it m
 
 = 1.2.0 =
 
-* added support for Visual Composer column background
-* added icons with images and overlay in Visual Composer backend view
+* added support for WPBakery Page Builder column background
+* added icons with images and overlay in WPBakery Page Builder backend view
 * small fix for stretch option
 
 = 1.1.1 =

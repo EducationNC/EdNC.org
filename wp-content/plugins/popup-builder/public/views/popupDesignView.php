@@ -35,11 +35,11 @@ $removedOptions = $popupTypeObj->getRemoveOptions();
 
 			<?php if (empty($removedOptions['sgpb-popup-z-index'])) :?>
 			<div class="row form-group">
-				<label class="col-md-5 sgpb-static-padding-top" for="sgpb-popup-order">
+				<label class="col-md-5 sgpb-static-padding-top" for="sgpb-popup-z-index">
 					<?php _e('Popup z-index', SG_POPUP_TEXT_DOMAIN)  ?>:
 				</label>
 				<div class="col-md-6">
-					<input type="number" min="1" name="sgpb-popup-z-index" id="sgpb-popup-order" class="form-control sgpb-full-width-events" value="<?php echo $popupTypeObj->getOptionValue('sgpb-popup-z-index'); ?>">
+					<input type="number" min="1" name="sgpb-popup-z-index" id="sgpb-popup-z-index" class="form-control sgpb-full-width-events" value="<?php echo $popupTypeObj->getOptionValue('sgpb-popup-z-index'); ?>">
 				</div>
 				<div class="col-md-1 sgpb-info-wrapper">
 					<span class="dashicons dashicons-editor-help sgpb-info-icon sgpb-info-icon-align"></span>
@@ -85,7 +85,7 @@ $removedOptions = $popupTypeObj->getRemoveOptions();
 					</div>
 					<?php if (!$enablePopupOverlay): ?>
 						<div class="col-md-2 sgpb-pro-options-label-wrapper">
-							<a href="<?php echo SG_POPUP_ADVANCED_CLOSING_URL;?>" target="_blank" class="btn btn-warning btn-xs sgpb-pro-label-sm sgpb-advanced-closing-pro-label"><?php _e('GET OPTION', SG_POPUP_TEXT_DOMAIN) ?></a>
+							<a href="<?php echo SG_POPUP_ADVANCED_CLOSING_URL;?>" target="_blank" class="btn btn-warning btn-xs sgpb-pro-label-sm sgpb-advanced-closing-pro-label"><?php _e('UNLOCK OPTION', SG_POPUP_TEXT_DOMAIN) ?></a>
 						</div>
 					<?php endif; ?>
 				</div>

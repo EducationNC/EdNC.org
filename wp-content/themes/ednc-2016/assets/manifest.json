@@ -43,6 +43,6 @@
     }
   },
   "config": {
-    "devUrl": "https://ednc.test/"
+    "devUrl": "http://local.wordpress.dev"
   }
 }

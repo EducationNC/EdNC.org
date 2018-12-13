@@ -35,6 +35,11 @@ class WPEDb {
 		return $wpdb->get_var($query, $col, $row);
 	}
 
+	function getCol($query, $col = 0) {
+		global $wpdb;
+		return $wpdb->get_col($query, $col);
+	}
+
 	function tableName($table) {
 		return $table[0];
 	}

@@ -8,7 +8,7 @@ require_once dirname( __FILE__ ) . '/main/auth.php';
 require_once dirname( __FILE__ ) . '/main/db.php';
 
 class WPEngine {
-	public $version = '1.76';
+	public $version = '1.82';
 	public $plugname = 'wpengine';
 	public $brandname = 'WPEngine Migration';
 	public $webpage = 'https://wpengine.com';
@@ -152,6 +152,7 @@ class WPEngine {
 	public static function uninstall() {
 		##CLEARLPCONFIG##
 		##CLEARFWCONFIG##
+		##CLEARIPSTORE##
 		##CLEARDYNSYNCCONFIG##
 	}
 }

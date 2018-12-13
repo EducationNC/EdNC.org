@@ -50,7 +50,15 @@ class SgpbPopupExtension implements SgpbIPopupExtension
 		if ($pageName == $newsletterPage) {
 			$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'Newsletter.js');
 		}
-
+		$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'Banner.js', 'dep' => array('jquery'));
+		$localizeData[] = array(
+			'handle' => 'Banner.js',
+			'name' => 'SGPB_JS_PARAMS',
+			'data' => array(
+				'url'   => admin_url('admin-ajax.php'),
+				'nonce' => wp_create_nonce(SG_AJAX_NONCE)
+			)
+		);
 		if (in_array($pageName, $allowPages)) {
 			$jsFiles[] = array('folderUrl'=> '', 'filename' => 'wp-color-picker');
 			$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'select2.min.js', 'dep' => '', 'ver' => '3.86', 'inFooter' => '');
@@ -60,7 +68,6 @@ class SgpbPopupExtension implements SgpbIPopupExtension
 			$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'Backend.js');
 			$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'Popup.js');
 			$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'PopupConfig.js');
-			$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'Banner.js');
 
 			$localizeData[] = array(
 				'handle' => 'Backend.js',
@@ -87,15 +94,6 @@ class SgpbPopupExtension implements SgpbIPopupExtension
 						'advanced-closing' => AdminHelper::isPluginActive('advancedClosing')
 					),
 					'proEvents' => apply_filters('sgpbProEvents', array('inactivity', 'onScroll'))
-				)
-			);
-
-			$localizeData[] = array(
-				'handle' => 'Banner.js',
-				'name' => 'SGPB_JS_PARAMS',
-				'data' => array(
-					'url'   => admin_url('admin-ajax.php'),
-					'nonce' => wp_create_nonce(SG_AJAX_NONCE)
 				)
 			);
 

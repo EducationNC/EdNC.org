@@ -2,7 +2,7 @@
 /**
  * Plugin Name:  Advanced WordPress Backgrounds
  * Description:  Parallax, Video, Images Backgrounds
- * Version:      1.4.10
+ * Version:      1.5.5
  * Author:       nK
  * Author URI:   https://nkdev.info
  * License:      GPLv2 or later
@@ -72,6 +72,9 @@ class NK_AWB {
         // load textdomain.
         load_plugin_textdomain( 'advanced-backgrounds', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 
+        // register images sizes.
+        $this->add_image_sizes();
+
         // include helper files.
         $this->include_dependencies();
 
@@ -100,10 +103,10 @@ class NK_AWB {
      */
     public function register_scripts() {
         wp_register_script( 'resize-observer-polyfill', nk_awb()->plugin_url . 'assets/vendor/resize-observer-polyfill/ResizeObserver.global.min.js', array(), '1.5.0', true );
-        wp_register_script( 'jarallax', nk_awb()->plugin_url . 'assets/vendor/jarallax/jarallax.min.js', array( 'jquery', 'resize-observer-polyfill' ), '1.10.4', true );
-        wp_register_script( 'jarallax-video', nk_awb()->plugin_url . 'assets/vendor/jarallax/jarallax-video.min.js', array( 'jarallax' ), '1.10.4', true );
+        wp_register_script( 'jarallax', nk_awb()->plugin_url . 'assets/vendor/jarallax/jarallax.min.js', array( 'jquery', 'resize-observer-polyfill' ), '1.10.6', true );
+        wp_register_script( 'jarallax-video', nk_awb()->plugin_url . 'assets/vendor/jarallax/jarallax-video.min.js', array( 'jarallax' ), '1.10.6', true );
         wp_register_script( 'object-fit-images', nk_awb()->plugin_url . 'assets/vendor/object-fit-images/ofi.min.js', array(), '3.2.4', true );
-        wp_register_script( 'nk-awb', nk_awb()->plugin_url . 'assets/awb/awb.min.js', array( 'jquery', 'jarallax', 'jarallax-video', 'object-fit-images' ), '1.4.10', true );
+        wp_register_script( 'nk-awb', nk_awb()->plugin_url . 'assets/awb/awb.min.js', array( 'jquery', 'jarallax', 'jarallax-video', 'object-fit-images' ), '1.5.5', true );
 
         wp_localize_script( 'nk-awb', 'AWBData', array(
             'settings' => array(
@@ -113,7 +116,7 @@ class NK_AWB {
             ),
         ));
 
-        wp_register_style( 'nk-awb', nk_awb()->plugin_url . 'assets/awb/awb.min.css', '', '1.4.10' );
+        wp_register_style( 'nk-awb', nk_awb()->plugin_url . 'assets/awb/awb.min.css', '', '1.5.5' );
     }
 
     /**
@@ -144,6 +147,17 @@ class NK_AWB {
             }
         }());
         ' );
+    }
+
+    /**
+     * Add image sizes.
+     */
+    public function add_image_sizes() {
+        // custom image sizes.
+        add_image_size( 'awb_sm', 500 );
+        add_image_size( 'awb_md', 800 );
+        add_image_size( 'awb_lg', 1280 );
+        add_image_size( 'awb_xl', 1920 );
     }
 
     /**

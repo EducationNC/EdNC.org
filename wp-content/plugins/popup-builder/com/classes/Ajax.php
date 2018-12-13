@@ -362,11 +362,55 @@ class Ajax
 		}
 
 		if ($res) {
+			$userData = array(
+				'email' => $email,
+				'firstName' => $firstName,
+				'lastName' => $lastName
+			);
+			$sendEmails = $this->sendSuccessEmails($popupPostId, $userData);
 			$status = SGPB_AJAX_STATUS_TRUE;
 		}
 
 		echo $status;
 		wp_die();
+	}
+
+	public function sendSuccessEmails($popupPostId, $subscriptionDetails)
+	{
+		global $wpdb;
+		$popup = SGPopup::find($popupPostId);
+
+		if (!is_object($popup)) {
+			return false;
+		}
+		$subscribersTableName = $wpdb->prefix.SGPB_SUBSCRIBERS_TABLE_NAME;
+
+		$getSubscriberCountQuery = $wpdb->prepare('SELECT COUNT(id) as countIds FROM '.$subscribersTableName.' WHERE subscriptionType = %d', $popupPostId);
+		$count = $wpdb->get_row($getSubscriberCountQuery, ARRAY_A);
+
+		$popupOptions = $popup->getOptions();
+		$adminUserName = 'admin';
+
+		$adminEmail = get_option('admin_email');
+		$userData = @get_user_by_email($adminEmail);
+
+		if (!empty($userData)) {
+			$adminUserName = $userData->display_name;
+		}
+
+		$newSubscriberEmailHeader = AdminHelper::getEmailHeader($adminEmail);
+		$takeReviewAfterFirstSubscription = get_option('sgpb-new-subscriber');
+
+		if ($count['countIds'] == 1 && !$takeReviewAfterFirstSubscription) {
+			// take review
+			update_option('sgpb-new-subscriber', 1);
+			$newSubscriberEmailTitle = __('Congrats! You have already 1 subscriber!', SG_POPUP_TEXT_DOMAIN);
+			$reviewEmailTemplate = AdminHelper::getFileFromURL(SG_POPUP_EMAIL_TEMPLATES_URL.'takeReviewAfterSubscribe.html');
+			$reviewEmailTemplate = preg_replace('/\[adminUserName]/', $adminUserName, $reviewEmailTemplate);
+			$sendStatus = wp_mail($adminEmail, $newSubscriberEmailTitle, $reviewEmailTemplate, $newSubscriberEmailHeader); //return true or false
+		}
+
+		do_action('sgpbSubscriptionPlusNotifications', $popupPostId, $subscriptionDetails);
 	}
 
 	public function select2SearchData()

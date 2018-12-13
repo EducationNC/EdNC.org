@@ -34,8 +34,8 @@ class SgpbPopupConfig
 		self::addDefine('SG_POPUP_VIDEO_URL', 'https://popup-builder.com/downloads/video/');
 		self::addDefine('SG_POPUP_SOCIAL_URL', 'https://popup-builder.com/downloads/social/');
 		self::addDefine('SG_POPUP_COUNTDOWN_URL', 'https://popup-builder.com/downloads/countdown/');
-		self::addDefine('SG_POPUP_RESTRICTION_URL', 'https://popup-builder.com/downloads/restriction/');
-		self::addDefine('SG_POPUP_CONTACT_FORM_URL', 'https://popup-builder.com/downloads/contact-form/');
+		self::addDefine('SG_POPUP_RESTRICTION_URL', 'https://popup-builder.com/downloads/age-restriction-popup/');
+		self::addDefine('SG_POPUP_CONTACT_FORM_URL', 'https://popup-builder.com/downloads/contact-popup/');
 		self::addDefine('SG_POPUP_INACTIVITY_URL', 'https://popup-builder.com/downloads/inactivity/');
 		self::addDefine('SG_POPUP_SCHEDULING_URL', 'https://popup-builder.com/downloads/scheduling/');
 		self::addDefine('SG_POPUP_GEO_TARGETING_URL', 'https://popup-builder.com/downloads/geo-targeting/');
@@ -44,6 +44,8 @@ class SgpbPopupConfig
 		self::addDefine('SG_POPUP_ADVANCED_TARGETING_URL', 'https://popup-builder.com/downloads/advanced-targeting/');
 		self::addDefine('SG_POPUP_ALL_EXTENSIONS_URL', 'https://popup-builder.com/downloads/category/extensions/');
 		self::addDefine('SG_POPUP_LOGIN_URL', 'https://popup-builder.com/downloads/login-popup/');
+		self::addDefine('SG_POPUP_REGISTRATION_URL', 'https://popup-builder.com/downloads/registration-popup/');
+		self::addDefine('SG_POPUP_SUBSCRIPTION_PLUS_URL', 'https://popup-builder.com/downloads/subscription-plus-popup/');
 		self::addDefine('SG_POPUP_ADMIN_URL', admin_url());
 		self::addDefine('SG_POPUP_BUILDER_URL', plugins_url().'/'.SG_POPUP_FOLDER_NAME.'/');
 		self::addDefine('SG_POPUP_BUILDER_PATH', WP_PLUGIN_DIR.'/'.SG_POPUP_FOLDER_NAME.'/');
@@ -66,6 +68,8 @@ class SgpbPopupConfig
 		self::addDefine('SG_POPUP_CSS_URL', SG_POPUP_PUBLIC_URL.'css/');
 		self::addDefine('SG_POPUP_IMG_URL', SG_POPUP_PUBLIC_URL.'img/');
 		self::addDefine('SG_POPUP_SOUND_URL', SG_POPUP_PUBLIC_URL.'sound/');
+		self::addDefine('SG_POPUP_VIEWS_URL', SG_POPUP_PUBLIC_URL.'views/');
+		self::addDefine('SG_POPUP_EMAIL_TEMPLATES_URL', SG_POPUP_VIEWS_URL.'emailTemplates/');
 		self::addDefine('SG_POPUP_DEFAULT_TIME_ZONE', 'UTC');
 		self::addDefine('SG_POPUP_CATEGORY_TAXONOMY', 'popup-categories');
 		self::addDefine('SG_POPUP_MINIMUM_PHP_VERSION', '5.3.3');
@@ -88,6 +92,8 @@ class SgpbPopupConfig
 		self::addDefine('SGPB_APP_POPUP_TABLE_LIMIT', 15);
 		self::addDefine('SGPB_SUBSCRIBERS_ERROR_TABLE_NAME', 'sgpb_subscription_error_log');
 		self::addDefine('SGPB_CRON_REPEAT_INTERVAL', 1);
+		self::addDefine('SGPB_BANNER_CRON_TEXT_URL', 'https://popup-builder.com/sgpb-banner.php?banner=main');
+		self::addDefine('SGPB_METABOX_BANNER_CRON_TEXT_URL', 'https://popup-builder.com/sgpb-banner.php?banner=sidebar1');
 		self::addDefine('SGPB_FACEBOOK_APP_ID', 1725074220856984);
 		self::addDefine('SGPB_POPUP_TYPE_RESTRICTION', 'ageRestriction');
 		self::addDefine('SGPB_POPUP_DEFAULT_SOUND', 'popupOpenSound.wav');
@@ -103,6 +109,7 @@ class SgpbPopupConfig
 		self::addDefine('SGPB_POPUP_SCHEDULING_EXTENSION_KEY', 'popupbuilder-scheduling/PopupBuilderScheduling.php');
 		self::addDefine('SGPB_POPUP_GEO_TARGETING_EXTENSION_KEY', 'popupbuilder-geo-targeting/PopupBuilderGeoTargeting.php');
 		self::addDefine('SGPB_POPUP_ADVANCED_TARGETING_EXTENSION_KEY', 'popupbuilder-advanced-targeting/PopupBuilderAdvancedTargeting.php');
+		self::addDefine('SGPB_POPUP_SUBSCRIPTION_PLUS_EXTENSION_KEY', 'popupbuilder-subscription-plus/PopupBuilderSubscriptionPlus.php');
 		self::addDefine('SGPB_ASK_REVIEW_POPUP_COUNT', 80);
 		self::addDefine('SGPB_REVIEW_POPUP_PERIOD', 30);
 		self::addDefine('SGPB_POPUP_EXPORT_FILE_NAME', 'PopupBuilderPopups.xml');

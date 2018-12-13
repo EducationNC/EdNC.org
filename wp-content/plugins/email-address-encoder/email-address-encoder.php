@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Email Address Encoder
-Plugin URI: http://wordpress.org/plugins/email-address-encoder/
-Description: A lightweight plugin to protect email addresses from email-harvesting robots by encoding them into decimal and hexadecimal entities.
-Version: 1.0.7
+Plugin URI: https://encoder.till.im/
+Description: A lightweight plugin that protects email addresses from email-harvesting robots by encoding them into decimal and hexadecimal entities.
+Version: 1.0.12
 Author: Till Krüss
 Author URI: https://till.im/
 Text Domain: email-address-encoder
@@ -15,18 +15,34 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 /**
- * Define default filter-priority constant, unless it has already been defined.
+ * Define filter-priority constant, unless it has already been defined.
  */
 if ( ! defined( 'EAE_FILTER_PRIORITY' ) ) {
-	define( 'EAE_FILTER_PRIORITY', 1000 );
+    define(
+        'EAE_FILTER_PRIORITY',
+        (integer) get_option( 'eae_filter_priority', 1000 )
+    );
 }
+
+/**
+ * Load admin related code.
+ */
+require_once __DIR__ . '/includes/admin.php';
+
+/**
+ * Register uninstall and activation hooks.
+ */
+register_uninstall_hook( __FILE__, 'eae_uninstall_hook' );
+register_activation_hook( __FILE__, 'eae_activation_hook' );
 
 /**
  * Register filters to encode plain email addresses in posts, pages, excerpts,
  * comments and text widgets.
  */
-foreach ( array( 'the_content', 'the_excerpt', 'widget_text', 'comment_text', 'comment_excerpt' ) as $filter ) {
-	add_filter( $filter, 'eae_encode_emails', EAE_FILTER_PRIORITY );
+if ( get_option( 'eae_search_in', 'filters' ) !== 'void' ) {
+    foreach ( array( 'the_content', 'the_excerpt', 'widget_text', 'comment_text', 'comment_excerpt' ) as $filter ) {
+        add_filter( $filter, 'eae_encode_emails', EAE_FILTER_PRIORITY );
+    }
 }
 
 /**
@@ -40,9 +56,9 @@ add_action( 'init', 'eae_register_shortcode', 1000 );
  * @return void
  */
 function eae_register_shortcode() {
-	if ( ! shortcode_exists( 'encode' ) ) {
-		add_shortcode( 'encode', 'eae_shortcode' );
-	}
+    if ( ! shortcode_exists( 'encode' ) ) {
+        add_shortcode( 'encode', 'eae_shortcode' );
+    }
 }
 
 /**
@@ -69,43 +85,41 @@ function eae_shortcode( $attributes, $content = '' ) {
  * @return string Given text with encoded email addresses
  */
 function eae_encode_emails( $string ) {
+    // abort if `$string` isn't a string
+    if ( ! is_string( $string ) ) {
+        return $string;
+    }
 
-	// abort if `$string` isn't a string
-	if ( ! is_string( $string ) ) {
-		return $string;
-	}
+    // abort if `eae_at_sign_check` is true and `$string` doesn't contain a @-sign
+    if ( apply_filters( 'eae_at_sign_check', true ) && strpos( $string, '@' ) === false ) {
+        return $string;
+    }
 
-	// abort if `eae_at_sign_check` is true and `$string` doesn't contain a @-sign
-	if ( apply_filters( 'eae_at_sign_check', true ) && strpos( $string, '@' ) === false ) {
-		return $string;
-	}
+    // override encoding function with the 'eae_method' filter
+    $method = apply_filters( 'eae_method', 'eae_encode_str' );
 
-	// override encoding function with the 'eae_method' filter
-	$method = apply_filters( 'eae_method', 'eae_encode_str' );
+    // override regex pattern with the 'eae_regexp' filter
+    $regexp = apply_filters(
+        'eae_regexp',
+        '{
+            (?:mailto:)?
+            (?:
+                [-!#$%&*+/=?^_`.{|}~\w\x80-\xFF]+
+            |
+                ".*?"
+            )
+            \@
+            (?:
+                [-a-z0-9\x80-\xFF]+(\.[-a-z0-9\x80-\xFF]+)*\.[a-z]+
+            |
+                \[[\d.a-fA-F:]+\]
+            )
+        }xi'
+    );
 
-	// override regex pattern with the 'eae_regexp' filter
-	$regexp = apply_filters(
-		'eae_regexp',
-		'{
-			(?:mailto:)?
-			(?:
-				[-!#$%&*+/=?^_`.{|}~\w\x80-\xFF]+
-			|
-				".*?"
-			)
-			\@
-			(?:
-				[-a-z0-9\x80-\xFF]+(\.[-a-z0-9\x80-\xFF]+)*\.[a-z]+
-			|
-				\[[\d.a-fA-F:]+\]
-			)
-		}xi'
-	);
-
-	return preg_replace_callback( $regexp, function ( $matches ) use ( $method ) {
-		return $method( $matches[0] );
-	}, $string );
-
+    return preg_replace_callback( $regexp, function ( $matches ) use ( $method ) {
+        return $method( $matches[0] );
+    }, $string );
 }
 
 /**
@@ -121,30 +135,30 @@ function eae_encode_emails( $string ) {
  * the BBEdit-Talk with some optimizations by Milian Wolff.
  *
  * @param string $string Text to encode
+ * @param bool $hex Whether to use hex entities as well
  *
  * @return string Encoded given text
  */
-function eae_encode_str( $string ) {
+function eae_encode_str( $string, $hex = false ) {
+    $chars = str_split( $string );
+    $seed = mt_rand( 0, (int) abs( crc32( $string ) / strlen( $string ) ) );
 
-	$chars = str_split( $string );
-	$seed = mt_rand( 0, (int) abs( crc32( $string ) / strlen( $string ) ) );
+    foreach ( $chars as $key => $char ) {
 
-	foreach ( $chars as $key => $char ) {
+        $ord = ord( $char );
 
-		$ord = ord( $char );
+        if ( $ord < 128 ) { // ignore non-ascii chars
 
-		if ( $ord < 128 ) { // ignore non-ascii chars
+            $r = ( $seed * ( 1 + $key ) ) % 100; // pseudo "random function"
 
-			$r = ( $seed * ( 1 + $key ) ) % 100; // pseudo "random function"
+            if ( $r > 60 && $char !== '@' && $char !== '.' ) ; // plain character (not encoded), except @-signs and dots
+            else if ( $hex && $r < 25 ) $chars[ $key ] = '%' . bin2hex( $char ); // hex
+            else if ( $r < 45 ) $chars[ $key ] = '&#x' . dechex( $ord ) . ';'; // hexadecimal
+            else $chars[ $key ] = '&#' . $ord . ';'; // decimal (ascii)
 
-			if ( $r > 60 && $char !== '@' && $char !== '.' ) ; // plain character (not encoded), except @-signs and dots
-			else if ( $r < 45 ) $chars[ $key ] = '&#x' . dechex( $ord ) . ';'; // hexadecimal
-			else $chars[ $key ] = '&#' . $ord . ';'; // decimal (ascii)
+        }
 
-		}
+    }
 
-	}
-
-	return implode( '', $chars );
-
+    return implode( '', $chars );
 }

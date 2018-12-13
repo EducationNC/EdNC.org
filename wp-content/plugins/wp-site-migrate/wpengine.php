@@ -5,7 +5,7 @@ Plugin URI: https://wpengine.com
 Description: The easiest way to migrate your site to WP Engine
 Author: WPEngine
 Author URI: https://wpengine.com
-Version: 1.76
+Version: 1.82
 Network: True
  */
 

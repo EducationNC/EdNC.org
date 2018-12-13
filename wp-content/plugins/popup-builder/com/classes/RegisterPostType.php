@@ -261,6 +261,25 @@ class RegisterPostType
 		if (!empty($popupTypeViewData)) {
 			add_action('add_meta_boxes', array($this, 'popupTypeOptions'));
 		}
+		if ($popupType == 'subscription') {
+			add_action('add_meta_boxes', array($this, 'rightBannerMetabox'));
+		}
+	}
+
+	public function rightBannerMetabox()
+	{
+		$banner = AdminHelper::getRightMetaboxBannerText();
+		if ($banner == '') {
+			return;
+		}
+		add_meta_box(
+			'popupTypeRightBannerView',
+			__('News', SG_POPUP_TEXT_DOMAIN),
+			array($this, 'popupTypeRightBannerView'),
+			SG_POPUP_POST_TYPE,
+			'side',
+			'low'
+		);
 	}
 
 	public function popupTypeMain()
@@ -456,5 +475,11 @@ class RegisterPostType
 		if (file_exists($optionsView['filePath'])) {
 			require_once($optionsView['filePath']);
 		}
+	}
+
+	public function popupTypeRightBannerView()
+	{
+		$banner = AdminHelper::getRightMetaboxBannerText();
+		echo $banner;
 	}
 }

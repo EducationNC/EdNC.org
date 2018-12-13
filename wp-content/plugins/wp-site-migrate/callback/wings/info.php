@@ -83,10 +83,17 @@ class BVInfoCallback {
 			'serverip' => $_SERVER['SERVER_ADDR'],
 			'host' => $_SERVER['HTTP_HOST'],
 			'phpversion' => phpversion(),
-			'uid' => getmyuid(),
-			'gid' => getmygid(),
-			'user' => get_current_user()
+			'AF_INET6' => defined('AF_INET6')
 		);
+		if (function_exists('get_current_user')) {
+			$sys_info['user'] = get_current_user();
+		}
+		if (function_exists('getmygid')) {
+			$sys_info['gid'] = getmygid();
+		}
+		if (function_exists('getmyuid')) {
+			$sys_info['uid'] = getmyuid();
+		}
 		if (function_exists('posix_getuid')) {
 			$sys_info['webuid'] = posix_getuid();
 			$sys_info['webgid'] = posix_getgid();
@@ -192,14 +199,10 @@ class BVInfoCallback {
 		$config = array();
 		$bvinfo = $bvcb->bvmain->info;
 		$mode = $bvinfo->getOption('bvlpmode');
-		$blips = $bvinfo->getOption('bvlpblacklistedips');
-		$whips = $bvinfo->getOption('bvlpwhitelistedips');
 		$cplimit = $bvinfo->getOption('bvlpcaptchalimit');
 		$tplimit = $bvinfo->getOption('bvlptempblocklimit');
 		$bllimit = $bvinfo->getOption('bvlpblockAllLimit');
 		$config['mode'] = intval($mode ? $mode : 1);
-		$config['blacklisted_ips'] = $blips ? $blips : array();
-		$config['whitelisted_ips'] = $whips ? $whips : array();
 		$config['captcha_limit'] = intval($cplimit ? $cplimit : 3);
 		$config['temp_block_limit'] = intval($tplimit? $tplimit : 6);
 		$config['block_all_limit'] = intval($bllimit ? $bllimit : 100);
@@ -211,13 +214,9 @@ class BVInfoCallback {
 		$config = array();
 		$bvinfo = $bvcb->bvmain->info;
 		$mode = $bvinfo->getOption('bvfwmode');
-		$blips = $bvinfo->getOption('bvfwblacklistedips');
-		$whips = $bvinfo->getOption('bvfwwhitelistedips');
 		$drules = $bvinfo->getOption('bvfwdisabledrules');
 		$rmode = $bvinfo->getOption('bvfwrulesmode');
 		$config['mode'] = intval($mode ? $mode : 1);
-		$config['blacklisted_ips'] = $blips ? $blips : array();
-		$config['whitelisted_ips'] = $whips ? $whips : array();
 		$config['disabled_rules'] = $drules ? $drules : array();
 		$config['rules_mode'] = intval($rmode ? $rmode : 1);
 		return $config;

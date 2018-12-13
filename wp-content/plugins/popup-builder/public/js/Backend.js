@@ -675,6 +675,12 @@ SGPBBackend.prototype.changeConditionParams = function()
 			var paramValue = currentTargetDiv.find('.sg-condition-param-wrapper select').first().val();
 			var ruleId = 0;
 			var groupId = 0;
+			var prevRuleDiv = jQuery(this).parents('.sg-target-rule').first();
+			var currentGroupDiv = jQuery(this).parents('.sg-target-group').first();
+			var currentTargetDiv = jQuery(this).parents('.popup-conditions-wrapper').first();
+
+			var groupId = parseInt(currentGroupDiv.attr('data-group-id'));
+			var ruleId = parseInt(prevRuleDiv.attr('data-rule-id'));
 
 			var data = {
 				action: 'change_condition_rule_row',
@@ -692,6 +698,9 @@ SGPBBackend.prototype.changeConditionParams = function()
 				currentTargetDiv.find('.sg-target-rule-'+ruleId).first().remove();
 
 				that.reInitRulesConfigButton();
+				if (currentTargetDiv.find('.sg-target-rule-'+ruleId).next().length) {
+					jQuery('.popup-conditions-'+conditionName+' > .sg-target-group-'+groupId+' .sg-target-rule-'+ruleId+' .sg-rules-add-button-wrapper').hide();
+				}
 			});
 		});
 	});
@@ -899,7 +908,7 @@ SGPBBackend.prototype.popupThemesPreview = function()
 SGPBBackend.prototype.rangeSlider = function()
 {
 	if (typeof Powerange != 'undefined') {
-		var powerRangeSelectors = ['js-popup-overlay-opacity', 'js-popup-content-opacity', 'js-subs-bg-opacity', 'js-contact-bg-opacity', 'js-login-bg-opacity'];
+		var powerRangeSelectors = ['js-popup-overlay-opacity', 'js-popup-content-opacity', 'js-subs-bg-opacity', 'js-contact-bg-opacity', 'js-login-bg-opacity', 'js-registration-bg-opacity'];
 
 		for (var i in powerRangeSelectors) {
 			if (typeof powerRangeSelectors[i] != 'string') {
@@ -925,7 +934,6 @@ SGPBBackend.prototype.powerRange = function(cssSelectorName)
 		jQuery('#' + cssSelectorName).attr('data-init', true);
 		var initDec = new Powerange(dec, { decimal: true, callback: displayDecimalValue, max: 1, start: jQuery('.' + cssSelectorName).attr('value') });
 	}
-
 };
 
 SGPBBackend.prototype.backgroundRangeSliderInit = function()

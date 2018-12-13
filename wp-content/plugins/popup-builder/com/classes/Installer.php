@@ -101,6 +101,7 @@ class Installer
 
 	public static function setupInstallationsDateConfig()
 	{
+		update_option('sgpbUnsubscribeColumnFixed', 1);
 		$usageDays = get_option('SGPBUsageDays');
 		if (!$usageDays) {
 			update_option('SGPBUsageDays', 0);
@@ -129,6 +130,8 @@ class Installer
 			return false;
 		}
 		delete_option('sgpb-dont-delete-data');
+		delete_option('sgpb-new-subscriber');
+		delete_option('sgpbUnsubscribeColumnFixed');
 
 		// Trigger popup data delete action
 		do_action('sgpbDeletePopupData');

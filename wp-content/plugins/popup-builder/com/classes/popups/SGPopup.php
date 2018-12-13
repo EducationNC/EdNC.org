@@ -1554,6 +1554,9 @@ abstract class SGPopup
 			'post_type' => SG_POPUP_POST_TYPE,
 			'post_status' => array('trash', 'publish')
 		);
+		if (!class_exists('ConfigDataHelper')) {
+			return $activePopupsQuery;
+		}
 		$allPostData = ConfigDataHelper::getQueryDataByArgs($args);
 		$args['checkActivePopupType'] = true;
 		$allPopups = $allPostData->posts;

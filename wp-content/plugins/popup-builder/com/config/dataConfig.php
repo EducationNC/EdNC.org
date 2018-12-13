@@ -611,6 +611,18 @@ class SgpbDataConfig
 			'key' => 'login',
 			'url' => SG_POPUP_LOGIN_URL
 		);
+		$keys[] = array(
+			'label' => __('Registration', SG_POPUP_TEXT_DOMAIN),
+			'pluginKey' =>  'popupbuilder-registration/PopupBuilderRegistration.php',
+			'key' => 'registration',
+			'url' => SG_POPUP_REGISTRATION_URL
+		);
+		$keys[] = array(
+			'label' => __('Subscription Plus', SG_POPUP_TEXT_DOMAIN),
+			'pluginKey' =>  'popupbuilder-subscription-plus/PopupBuilderSubscriptionPlus.php',
+			'key' => 'subscriptionPlus',
+			'url' => SG_POPUP_SUBSCRIPTION_PLUS_URL
+		);
 
 		return apply_filters('sgpbExtensionsKeys', $keys);
 	}

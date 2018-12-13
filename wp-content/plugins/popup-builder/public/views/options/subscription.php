@@ -355,14 +355,14 @@
 					<div class="col-md-6"><input type="checkbox" name="sgpb-subs-success-redirect-new-tab" id="subs-success-redirect-new-tab" placeholder="https://www.example.com" <?php echo $popupTypeObj->getOptionValue('sgpb-subs-success-redirect-new-tab'); ?>></div>
 				</div>
 			</div>
-		</div>
-		<div class="sg-hide sg-full-width" id="subs-open-popup">
-			<div class="row form-group">
-				<label for="sgpb-subs-success-redirect-URL" class="col-md-6 control-label sgpb-double-sub-option">
-					<?php _e('Select popup', SG_POPUP_TEXT_DOMAIN)?>:
-				</label>
-				<div class="col-md-6">
-					<?php echo AdminHelper::createSelectBox($subscriptionSubPopups, $successPopup, array('name' => 'sgpb-subs-success-popup', 'class'=>'js-sg-select2 sgpb-full-width-events')); ?>
+			<div class="sg-hide sg-full-width" id="subs-open-popup">
+				<div class="row form-group">
+					<label for="sgpb-subs-success-redirect-URL" class="col-md-6 control-label sgpb-double-sub-option">
+						<?php _e('Select popup', SG_POPUP_TEXT_DOMAIN)?>:
+					</label>
+					<div class="col-md-6">
+						<?php echo AdminHelper::createSelectBox($subscriptionSubPopups, $successPopup, array('name' => 'sgpb-subs-success-popup', 'class'=>'js-sg-select2 sgpb-full-width-events')); ?>
+					</div>
 				</div>
 			</div>
 		</div>

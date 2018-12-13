@@ -41,6 +41,7 @@ class SubscriptionPopup extends SGPopup
 					`subscriptionType` int(12),
 					`cDate` date,
 					`status` varchar(255),
+					`unsubscribed` int(11) default 0,
 					PRIMARY KEY (id)
 			) ENGINE=InnoDB DEFAULT CHARSET=utf8;';
 

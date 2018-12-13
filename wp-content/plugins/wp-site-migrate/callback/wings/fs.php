@@ -236,6 +236,19 @@ class BVFSCallback {
 			$bsize = intval(urldecode($_REQUEST['bsize']));
 			$this->uploadFiles($files, $offset, $limit, $bsize);
 			break;
+		case "filelist":
+			$initdir = $_REQUEST['initdir'];
+			$glob_option = GLOB_MARK;
+			if(array_key_exists('onlydir', $_REQUEST)) {
+				$glob_option = GLOB_ONLYDIR;
+			}
+			$regex = "*";
+			if(array_key_exists('regex', $_REQUEST)){
+				$regex = $_REQUEST['regex'];
+			}
+			$directoryList = glob($initdir.$regex, $glob_option);
+			$this->getFilesStats($directoryList);
+			break;
 		default:
 			return false;
 		}

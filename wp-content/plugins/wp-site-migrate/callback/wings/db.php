@@ -3,7 +3,15 @@
 if (!defined('ABSPATH')) exit;
 if (!class_exists('BVDBCallback')) :
 class BVDBCallback {
-	
+
+	public function getLastID($pkeys, $end_row) {
+		$last_ids = array();
+		foreach($pkeys as $pk) {
+			$last_ids[$pk] = $end_row[$pk];
+		}
+		return $last_ids;
+	}
+
 	public function getTableData($table, $tname, $rcount, $offset, $limit, $bsize, $filter, $pkeys, $include_rows = false) {
 		global $bvcb, $bvresp;
 		$tinfo = array();
@@ -26,10 +34,7 @@ class BVDBCallback {
 			array_push($tinfo, $data);
 			if (!empty($pkeys) && $srows > 0) {
 				$end_row = end($rows);
-				$last_ids = array();
-				foreach($pkeys as $pk) {
-					$last_ids[$pk] = $end_row[$pk];
-				}
+				$last_ids = $this->getLastID($pkeys, $end_row);
 				$data['last_ids'] = $last_ids;
 				$bvresp->addStatus('last_ids', $last_ids);
 			}
@@ -86,7 +91,16 @@ class BVDBCallback {
 			$filter = (array_key_exists('filter', $_REQUEST)) ? urldecode($_REQUEST['filter']) : "";
 			$limit = intval(urldecode($_REQUEST['limit']));
 			$offset = intval(urldecode($_REQUEST['offset']));
-			$bvresp->addStatus("rows", $db->getTableContent($table, $fields, $filter, $limit, $offset));
+			$pkeys = (array_key_exists('pkeys', $_REQUEST)) ? $_REQUEST['pkeys'] : array();
+			$bvresp->addStatus('timestamp', time());
+			$bvresp->addStatus('tablename', $table);
+			$rows = $db->getTableContent($table, $fields, $filter, $limit, $offset);
+			$srows = sizeof($rows);
+			if (!empty($pkeys) && $srows > 0) {
+				$end_row = end($rows);
+				$bvresp->addStatus('last_ids', $this->getLastID($pkeys, $end_row));
+			}
+			$bvresp->addStatus("rows", $rows);
 			break;
 		case "tableinfo":
 			$table = urldecode($_REQUEST['table']);

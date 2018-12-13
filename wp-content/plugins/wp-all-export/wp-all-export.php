@@ -3,7 +3,7 @@
 Plugin Name: WP All Export
 Plugin URI: http://www.wpallimport.com/export/
 Description: Export any post type to a CSV or XML file. Edit the exported data, and then re-import it later using WP All Import.
-Version: 1.2.1
+Version: 1.2.2
 Author: Soflyy
 */
 
@@ -59,7 +59,7 @@ else {
 	 */
 	define('PMXE_PREFIX', 'pmxe_');
 
-	define('PMXE_VERSION', '1.2.1');
+	define('PMXE_VERSION', '1.2.2');
 
 	define('PMXE_EDITION', 'free');
 
@@ -231,6 +231,8 @@ else {
             add_action('admin_init', array($this, 'adminInit'));
             add_action('admin_init', array($this, 'fix_db_schema'));
             add_action('init', array($this, 'init'));
+            add_action( 'in_plugin_update_message-wp-all-export/wp-all-export.php', array($this, 'wpae_plugin_update_message'), 10, 2 );
+
         }
 
         /**
@@ -420,7 +422,20 @@ else {
 			}
 		}
 
-		/**
+        function wpae_plugin_update_message( $data, $response ) {
+
+            if(version_compare($data['new_version'], '1.2.3') >= 0)
+                \_e("<br/><br/><strong>Important</strong> - Read This Before Installing
+            <br/><br/>
+Some functionality in WP All Export has been moved to add-ons: WooCommerce Add-On and ACF Add-On. You'll need to install those add-ons to export that data.  There's a little more to the story, and you can read all about it here: <a href=\"http://www.wpallimport.com/2018/11/export-add-ons/\" target=\"_blank\">Export Add-Ons</a>
+<br/><br/>
+This version of WP All Export will still export that data with or without the add-ons.  However, a future version will completely remove support for exporting WooCommerce and ACF data unless you also have the appropriate add-ons installed.
+<br/><br/>
+Please submit a support request if you run in to any problems: <a href=\"http://www.wpallimport.com/support/\" target=\"_blank\">http://www.wpallimport.com/support/</a>", \PMXE_Plugin::LANGUAGE_DOMAIN);
+        }
+
+
+        /**
 		 * Dispatch shorttag: create corresponding controller instance and call its index method
 		 * @param array $args Shortcode tag attributes
 		 * @param string $content Shortcode tag content
@@ -877,3 +892,4 @@ else {
 	include_once('wpae_api.php');
 	
 }
+

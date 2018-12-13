@@ -398,6 +398,10 @@
 	background-image: url("../img/subscriptionTypeIcon.png");
 }
 
+.subscriptionPlus-popup-pro {
+	background-image: url("../img/subscriptionPlusTypeIcon.png");
+}
+
 .sgpb-subscription-div {
 	background-color: #7eb540 !important;
 }
@@ -451,6 +455,10 @@
 	background-color: rgba(73, 185, 173, 0.4) !important;
 }
 
+.sgpb-subscriptionPlus-div {
+	background-color: rgba(23, 165, 143, 0.4) !important;
+}
+
 .sgpb-sgpbAWeber-div {
 	background-color: rgba(0, 121, 193, 0.4);
 }
@@ -467,9 +475,26 @@
 	background-color: #87ddd9 !important;
 }
 
+.sgpb-registration-div {
+	background-color: #fe415b !important;
+}
+
+.sgpb-registration-div:hover {
+	background-color: #fe5a70 !important;
+}
+
+.sgpb-extensions-wrapper .sgpb-registration-div {
+	background-color: rgb(254, 65, 91, 0.4) !important;
+}
+
 .login-popup-pro,
 .login-popup {
 	background-image: url("../img/loginTypeIcon.png") !important;
+}
+
+.registration-popup-pro,
+.registration-popup {
+	background-image: url("../img/registrationTypeIcon.png") !important;
 }
 
 .sgpbMailchimp-popup-pro,
@@ -496,6 +521,11 @@
 .sgpbAdBlock-popup-pro {
 	background-image: url("../img/adBlockTypeIcon.png") !important;
 }
+
+.sgpb-sgpbAdBlock-div {
+	background-color: rgba(249, 61, 62, 0.4);
+}
+
 
 .sgpb-sgpbAdBlock-div {
 	background-color: rgba(249, 61, 62, 0.4);
@@ -1272,11 +1302,16 @@ input:checked + .sgpb-slider:before {
 }
 
 .sgpb-box-target .sgpb-event-row:not(:first-child),
+.sgpb-box-woocommerce-special-events .sgpb-event-row:not(:first-child),
 .sgpb-box-conditions .sgpb-event-row:not(:first-child),
 .sgpb-box-events .sgpb-event-row:not(:first-child) {
 	border-top: 1px dashed #ccc;
 	margin-top: 20px;
 	padding-top: 10px
+}
+
+.sgpb-box-woocommerce-special-events .sgpb-event-row:not(:last-child) .sg-rules-add-button-wrapper.sgpb-static-padding-top {
+	display: none;
 }
 
 .col-md-2.sg-rules-edit-button-wrapper {
@@ -1901,7 +1936,10 @@ input:checked + .sgpb-slider:before {
 }
 
 .sgpb-rate-us-banner-2 {
-	background-image: url(../img/rateUsBanner2.png);
+	/*background-image: url(../img/rateUsBanner2.png);*/
+	background-color: #00c4ee;
+	border-top: 1px solid #2b2744;
+	border-bottom: 1px solid #2b2744;
 }
 
 .sgpb-rate-us-banner-3 {
@@ -2018,15 +2056,6 @@ input:checked + .sgpb-slider:before {
 	border-color:  #308DE8 !important;
 }
 
-.sgpb-advanced-targeting-pro-label {
-	background-color: #EB5F46 !important;
-}
-
-.sgpb-advanced-targeting-pro-label:hover {
-	background-color: rgba(235, 95, 70, 0.6) !important;
-	border-color: rgba(235, 95, 70, 0.2) !important;
-}
-
 .sgpb-import-wrapper input {
 	display: inline-block !important;
 }
@@ -2035,3 +2064,4 @@ input:checked + .sgpb-slider:before {
 	float: none !important;
 	padding: 0 !important;
 }
+

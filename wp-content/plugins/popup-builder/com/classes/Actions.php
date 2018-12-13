@@ -38,6 +38,7 @@ class Actions
 		add_shortcode('sg_popup', array($this, 'popupShortcode'));
 		add_filter('cron_schedules', array($this, 'cronAddMinutes'), 10, 1);
 		add_action('sgpb_send_newsletter', array($this, 'newsletterSendEmail'), 10, 1);
+		add_action('sgpbGetBannerContent', array($this, 'getBannerContent'), 10, 1);
 		add_action('admin_post_sgpbSaveSettings', array($this, 'saveSettings'), 10, 1);
 		add_action('admin_init', array($this, 'disableAutosave'));
 		add_action('admin_init', array($this, 'userRolesCaps'));
@@ -50,14 +51,28 @@ class Actions
 		// for change admin popup list order
 		add_action('pre_get_posts', array($this, 'preGetPosts'));
 		add_action('template_redirect',array($this, 'redirectFromPopupPage'));
-
-
 		add_filter('views_edit-popupbuilder', array($this, 'mainActionButtons'), 10, 1);
 		new Ajax();
 	}
 
+	public function getBannerContent()
+	{
+		// main banner content
+		$bannerContent = AdminHelper::getFileFromURL(SGPB_BANNER_CRON_TEXT_URL);
+		update_option('sgpb-banner-remote-get', $bannerContent);
+		// right metabox banner content
+		$metaboxBannerContent = AdminHelper::getFileFromURL(SGPB_METABOX_BANNER_CRON_TEXT_URL);
+		update_option('sgpb-metabox-banner-remote-get', $metaboxBannerContent);
+
+		return true;
+	}
+
 	public function wpInit()
 	{
+		if (!get_option('sgpb-banner-cron-once')) {
+			update_option('sgpb-banner-cron-once', 1);
+			wp_schedule_event(time(), 'daily', 'sgpbGetBannerContent');
+		}
 		new Updates();
 	}
 
@@ -143,7 +158,7 @@ class Actions
 	{
 		global $post_type;
 
-		if (!get_option('SGPB_PROMOTIONAL_BANNER_CLOSED') && $post_type == SG_POPUP_POST_TYPE) {
+		if (!get_option('SGPB_PROMOTIONAL_BANNER_CLOSED')) {
 			require_once(SG_POPUP_VIEWS_PATH.'mainRateUsBanner.php');
 		}
 
@@ -504,7 +519,10 @@ class Actions
 			ConvertToNewVersion::saveCustomInserted();
 		}
 
-		PopupLoader::instance()->loadPopups();
+		$popupLoaderObj = PopupLoader::instance();
+		if (is_object($popupLoaderObj)) {
+			$popupLoaderObj->loadPopups();
+		}
 	}
 
 	public function adminLoadPopups($hook)

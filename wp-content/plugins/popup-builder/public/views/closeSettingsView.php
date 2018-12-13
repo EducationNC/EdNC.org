@@ -198,7 +198,7 @@
 				</div>
 				<?php if (!$disablePopupClosing): ?>
 					<div class="col-md-2 sgpb-pro-options-label-wrapper">
-						<a href="<?php echo SG_POPUP_ADVANCED_CLOSING_URL;?>" target="_blank" class="btn btn-warning btn-xs sgpb-pro-label-sm sgpb-advanced-closing-pro-label"><?php _e('GET OPTION', SG_POPUP_TEXT_DOMAIN) ?></a>
+						<a href="<?php echo SG_POPUP_ADVANCED_CLOSING_URL;?>" target="_blank" class="btn btn-warning btn-xs sgpb-pro-label-sm sgpb-advanced-closing-pro-label"><?php _e('UNLOCK OPTION', SG_POPUP_TEXT_DOMAIN) ?></a>
 					</div>
 				<?php endif; ?>
 			</div>

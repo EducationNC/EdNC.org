@@ -178,6 +178,10 @@ class BVCallback {
 			require_once dirname( __FILE__ ) . '/callback/wings/dynsync.php';
 			$module = new BVDynSyncCallback();
 			break;
+		case 'ipstr':
+			require_once dirname( __FILE__ ) . '/callback/wings/ipstore.php';
+			$module = new BVIPStoreCallback();
+			break;
 		case 'auth':
 			require_once dirname( __FILE__ ) . '/callback/wings/auth.php';
 			$module = new BVAuthCallback();

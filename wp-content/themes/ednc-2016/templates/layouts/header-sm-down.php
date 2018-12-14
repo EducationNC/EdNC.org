@@ -29,8 +29,8 @@ use Roots\Sage\Nav;
 
       <li>
         <ul class="list-inline social-media text-center">
-          <li><a class="icon-facebook" href="https://facebook.com/educationnc" target="_blank"></a></li>
-          <li><a class="icon-twitter" href="https://twitter.com/educationnc" target="_blank"></a></li>
+          <!-- <li><a class="icon-facebook" href="https://facebook.com/educationnc" target="_blank"></a></li>
+          <li><a class="icon-twitter" href="https://twitter.com/educationnc" target="_blank"></a></li> -->
           <li><a class="icon-youtube" href="https://www.youtube.com/channel/UCJto5My-_AVw1Nx5AGq8TEQ" target="_blank"></a></li>
           <li><a class="icon-instagram" href="https://instagram.com/educationnc" target="_blank"></a></li>
           <li><a class="icon-rss" href="<?php echo get_bloginfo('rss2_url'); ?>"></a></li>

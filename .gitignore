@@ -4,34 +4,26 @@
 .cvs
 *.bak
 *.swp
-
-.gitignore-1
-wp-config-1.php
-.htaccess
-sitemap.xml
-sitemap.xml.gz
-searchreplacedb2.php
-rrrreplace.php
-www.ednc.org-20181108-191307-433.wpress
+Thumbs.db
 
 # wordpress specific
 wp-config.php
 wp-content/uploads/
 wp-content/blogs.dir/
 wp-content/upgrade/*
-wp-content/ai1wm-backups/
 wp-content/backup-db/*
 wp-content/advanced-cache.php
 wp-content/wp-cache-config.php
 wp-content/cache/*
 wp-content/cache/supercache/*
-wp-content/themes/ednc-2016/bower_components
-wp-content/themes/ednc-2016/node_modules
+www.ednc.org-20181108-191307-433.wpress
+wp-content/ai1wm-backups/
+wp-config-1.php
 
 # wpengine specific
 .smushit-status
 .gitattributes
-_wpeprivate
+_wpeprivate*
 wp-content/object-cache.php
 wp-content/mu-plugins/mu-plugin.php
 wp-content/mu-plugins/slt-force-strong-passwords.php
@@ -39,6 +31,48 @@ wp-content/mu-plugins/stop-long-comments.php
 wp-content/mu-plugins/force-strong-passwords*
 wp-content/mu-plugins/wpengine-common*
 wp-content/mysql.sql
+
+# wp core (as of 4.9.5)
+/db-config.php
+/index.php
+/license.txt
+/readme.html
+/wp-activate.php
+/wp-app.php
+/wp-atom.php
+/wp-blog-header.php
+/wp-comments-post.php
+/wp-commentsrss2.php
+/wp-config-sample.php
+/wp-cron.php
+/wp-feed.php
+/wp-links-opml.php
+/wp-load.php
+/wp-login.php
+/wp-mail.php
+/wp-rdf.php
+/wp-rss.php
+/wp-rss2.php
+/wp-pass.php
+/wp-register.php
+/wp-settings.php
+/wp-signup.php
+/wp-trackback.php
+/xmlrpc.php
+/wp-admin
+/wp-includes
+/wp-content/index.php
+/wp-content/themes/twentyten
+/wp-content/themes/twentyeleven
+/wp-content/themes/twentytwelve
+/wp-content/themes/twentythirteen
+/wp-content/themes/twentyfourteen
+/wp-content/themes/twentyfifteen
+/wp-content/themes/twentysixteen
+/wp-content/themes/twentyseventeen
+/wp-content/themes/index.php
+/wp-content/plugins/index.php
+/wp-content/plugins/akismet*
 
 # large/disallowed file types
 # a CDN should be used for these

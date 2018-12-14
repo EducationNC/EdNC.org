@@ -19,6 +19,7 @@ wp-content/cache/supercache/*
 www.ednc.org-20181108-191307-433.wpress
 wp-content/ai1wm-backups/
 wp-config-1.php
+.gitignore-1
 
 # wpengine specific
 .smushit-status

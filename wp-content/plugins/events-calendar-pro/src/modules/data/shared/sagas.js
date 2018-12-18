@@ -63,7 +63,12 @@ export function* handleAddition( { actions } ) {
 	const startMoment = yield call( toMoment, start );
 	const endMoment = yield call( toMoment, end );
 
+	const startMomentDate = yield call( [ startMoment, 'date' ] );
+	const startWeekNum = yield call( [ Math, 'ceil' ], startMomentDate / 7 );
+	const startWeek = recurringConstants.WEEK_NUM_MAPPING_TO_WEEKS_OF_THE_MONTH[ startWeekNum ];
 	const startWeekday = yield call( [ startMoment, 'isoWeekday' ] );
+	/* startMonth is zero-indexed, January is 0, December is 11 */
+	const startMonth = yield call( [ startMoment, 'month' ] );
 
 	const startDate = yield call( toDatabaseDate, startMoment );
 	const startTime = yield call( toDatabaseTime, startMoment );
@@ -93,9 +98,10 @@ export function* handleAddition( { actions } ) {
 		[ KEY_LIMIT_DATE_INPUT ]: endDateInput,
 		[ KEY_LIMIT_DATE_OBJ ]: endDateObj,
 		[ KEY_DAYS ]: [ startWeekday ],
-		[ KEY_WEEK ]: recurringConstants.FIRST,
+		[ KEY_WEEK ]: startWeek,
 		[ KEY_DAY ]: startWeekday,
-		[ KEY_MONTH ]: [],
+		/* KEY_MONTH is one-indexed, January is 1, December is 12 */
+		[ KEY_MONTH ]: [ startMonth + 1 ],
 		[ KEY_TIMEZONE ]: timezone,
 		[ KEY_MULTI_DAY_SPAN ]: recurringConstants.NEXT_DAY,
 	} ) );

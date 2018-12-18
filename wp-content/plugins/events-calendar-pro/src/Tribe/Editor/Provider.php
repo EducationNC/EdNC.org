@@ -54,7 +54,7 @@ class Tribe__Events__Pro__Editor__Provider extends tad_DI52_ServiceProvider {
 		tribe( 'events-pro.editor' )->hook();
 		// Setup the Meta registration
 		add_action(
-			'tribe_events_editor_register_blocks',
+			'tribe_editor_register_blocks',
 			tribe_callback( 'events-pro.editor.blocks.fields', 'register' )
 		);
 	}

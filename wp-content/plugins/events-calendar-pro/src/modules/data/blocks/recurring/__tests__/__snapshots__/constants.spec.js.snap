@@ -117,3 +117,13 @@ Object {
   "september": 9,
 }
 `;
+
+exports[`Recurrence constants Weeks of the month week num mapping to weeks of the month 1`] = `
+Object {
+  "1": "first",
+  "2": "second",
+  "3": "third",
+  "4": "fourth",
+  "5": "fifth",
+}
+`;

@@ -1,13 +1,13 @@
 === Smush Image Compression and Optimization ===
 Plugin Name: Smush Image Compression and Optimization
-Version: 3.0.1
+Version: 3.0.2
 Author: WPMU DEV
 Author URI: https://premium.wpmudev.org/
 Contributors: WPMUDEV, alexdunae
 Tags: image, resize, optimize, optimise, compress, performance, optimisation, optimise JPG, photo, pictures, optimizer, Smush WordPress Compression, Smush.it
 Requires at least: 4.6
-Tested up to: 5.0.0
-Stable tag: 3.0.1
+Tested up to: 5.0.1
+Stable tag: 3.0.2
 Requires PHP: 5.2.4
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
@@ -153,6 +153,12 @@ It depends what side of the pond you live on...but whether you say optimize, opt
 
 == Changelog ==
 
+= 3.0.2 =
+
+* Enhance: Support for WordPress 5.0 release and Gutenberg editor
+* Fix: [WP Offload Media] integration with Pro version
+* Fix: PHP warning on update from Smush version 2 to version 3
+
 = 3.0.1 =
 
 * Security: Remove support for Upfront theme functions
@@ -165,7 +171,8 @@ It depends what side of the pond you live on...but whether you say optimize, opt
 * New: Plugin structure (Important: plugin globals have been removed)
 * New: Show failure reason during directory Smush
 * New: Settings page with language translation links
-* Security: Fix XSS and phar deserialization vulnerabilities
+* Security: Fix XSS vulnerability
+* Security: Fix phar deserialization vulnerability (thanks @ripstech)
 * Enhance: Better handling of animated GIFs. Improve performance.
 * Enhance: Update translation strings
 * Enhance: Clean out all the leftover data on plugin uninstall

@@ -235,7 +235,7 @@ abstract class SGPopup
 
 		$saveMode = '';
 		global $post;
-		if ((is_preview() && $post->ID == $popupId) || isset($args['preview'])) {
+		if ((@is_preview() && $post->ID == $popupId) || isset($args['preview'])) {
 			$saveMode = '_preview';
 		}
 		if (isset($args['insidePopup']) && $args['insidePopup'] == 'on') {

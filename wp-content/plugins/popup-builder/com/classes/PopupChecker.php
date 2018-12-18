@@ -371,7 +371,8 @@ class PopupChecker
 		}
 		else if ($targetData['param'] == 'post_tags_ids') {
 			$tagsObj = wp_get_post_tags($postId);
-			$selectedTags = array_values($targetData['value']);
+			$postTagsValues = (array)@$targetData['value'];
+			$selectedTags = array_values($postTagsValues);
 
 			foreach ($tagsObj as $tagObj) {
 				if (in_array($tagObj->slug, $selectedTags)) {

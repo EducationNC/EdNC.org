@@ -19,6 +19,9 @@ class Helpers {
 	static $lb_defaults = null;
 
 	static function string_to_array( $string ) {
+		if(is_array($string)){
+			return $string;
+		}
 		return explode( ',', trim( $string, ' ,' ) );
 	}
 
@@ -26,7 +29,7 @@ class Helpers {
 		if ( self::$has_photon === null ) {
 			if ( class_exists( 'Jetpack' )
 			     && method_exists( 'Jetpack', 'get_active_modules' )
-			     && in_array( 'photon', Jetpack::get_active_modules() ) ) {
+			     && in_array( 'photon', \Jetpack::get_active_modules() ) ) {
 				self::$has_photon = true;
 			} else {
 				self::$has_photon = false;

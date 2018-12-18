@@ -194,7 +194,7 @@
 					<?php _e('Height', SG_POPUP_TEXT_DOMAIN); ?>:
 				</label>
 				<div class="col-md-6">
-					<input class="form-control js-subs-dimension sgpb-full-width-events" data-subs-rel="js-subs-text-inputs" data-style-type="height" type="text" name="sgpb-subs-text-height" id="subs-text-height" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-text-height')); ?>">
+					<input class="form-control js-subs-dimension sgpb-full-width-events" data-field-type="input" data-subs-rel="js-subs-text-inputs" data-style-type="height" type="text" name="sgpb-subs-text-height" id="subs-text-height" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-text-height')); ?>">
 				</div>
 			</div>
 			<div class="row form-group">
@@ -202,7 +202,7 @@
 					<?php _e('Border width', SG_POPUP_TEXT_DOMAIN); ?>:
 				</label>
 				<div class="col-md-6">
-					<input class="form-control js-subs-dimension sgpb-full-width-events" data-subs-rel="js-subs-text-inputs" data-style-type="border-width" type="text" name="sgpb-subs-text-border-width" id="subs-text-border-width" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-text-border-width')); ?>">
+					<input class="form-control js-subs-dimension sgpb-full-width-events" data-field-type="input" data-subs-rel="js-subs-text-inputs" data-style-type="border-width" type="text" name="sgpb-subs-text-border-width" id="subs-text-border-width" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-text-border-width')); ?>">
 				</div>
 			</div>
 			<div class="row form-group">
@@ -211,7 +211,7 @@
 				</label>
 				<div class="col-md-6">
 					<div class="sgpb-color-picker-wrapper">
-						<input class="sgpb-color-picker js-subs-color-picker" data-subs-rel="js-subs-text-inputs" data-style-type="background-color" type="text" name="sgpb-subs-text-bg-color" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-text-bg-color')); ?>" >
+						<input class="sgpb-color-picker js-subs-color-picker" data-field-type="input" data-subs-rel="js-subs-text-inputs" data-style-type="background-color" type="text" name="sgpb-subs-text-bg-color" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-text-bg-color')); ?>" >
 					</div>
 				</div>
 			</div>
@@ -221,7 +221,7 @@
 				</label>
 				<div class="col-md-6">
 					<div class="sgpb-color-picker-wrapper">
-						<input class="sgpb-color-picker js-subs-color-picker" data-subs-rel="js-subs-text-inputs" data-style-type="border-color" type="text" name="sgpb-subs-text-border-color" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-text-border-color')); ?>" >
+						<input class="sgpb-color-picker js-subs-color-picker" data-field-type="input" data-subs-rel="js-subs-text-inputs" data-style-type="border-color" type="text" name="sgpb-subs-text-border-color" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-text-border-color')); ?>" >
 					</div>
 				</div>
 			</div>
@@ -231,7 +231,7 @@
 				</label>
 				<div class="col-md-6">
 					<div class="sgpb-color-picker-wrapper">
-						<input class="sgpb-color-picker js-subs-color-picker" data-subs-rel="js-subs-text-inputs" data-style-type="color" type="text" name="sgpb-subs-text-color" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-text-color')); ?>" >
+						<input class="sgpb-color-picker js-subs-color-picker" data-field-type="input" data-subs-rel="js-subs-text-inputs" data-style-type="color" type="text" name="sgpb-subs-text-color" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-text-color')); ?>" >
 					</div>
 				</div>
 			</div>
@@ -241,7 +241,7 @@
 				</label>
 				<div class="col-md-6">
 					<div class="sgpb-color-picker-wrapper">
-						<input class="sgpb-color-picker js-subs-color-picker sgpb-full-width-events" data-subs-rel="js-subs-text-inputs" data-style-type="placeholder" type="text" name="sgpb-subs-text-placeholder-color" value="<?php echo esc_html($placeholderColor); ?>" >
+						<input class="sgpb-color-picker js-subs-color-picker sgpb-full-width-events" data-field-type="input" data-subs-rel="js-subs-text-inputs" data-style-type="placeholder" type="text" name="sgpb-subs-text-placeholder-color" value="<?php echo esc_html($placeholderColor); ?>" >
 					</div>
 				</div>
 			</div>
@@ -260,7 +260,7 @@
 					<?php _e('Width', SG_POPUP_TEXT_DOMAIN); ?>:
 				</label>
 				<div class="col-md-6">
-					<input class="form-control js-subs-dimension sgpb-full-width-events" data-subs-rel="js-subs-submit-btn" data-style-type="width" type="text" name="sgpb-subs-btn-width" id="subs-btn-width" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-btn-width')); ?>">
+					<input class="form-control js-subs-dimension sgpb-full-width-events" data-subs-rel="js-subs-submit-btn" data-field-type="submit" data-style-type="width" type="text" name="sgpb-subs-btn-width" id="subs-btn-width" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-btn-width')); ?>">
 				</div>
 			</div>
 			<div class="row form-group">
@@ -268,7 +268,7 @@
 					<?php _e('Height', SG_POPUP_TEXT_DOMAIN); ?>:
 				</label>
 				<div class="col-md-6">
-					<input class="form-control js-subs-dimension sgpb-full-width-events" data-subs-rel="js-subs-submit-btn" data-style-type="height" type="text" name="sgpb-subs-btn-height" id="subs-btn-height" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-btn-height')); ?>">
+					<input class="form-control js-subs-dimension sgpb-full-width-events" data-subs-rel="js-subs-submit-btn" data-field-type="submit" data-style-type="height" type="text" name="sgpb-subs-btn-height" id="subs-btn-height" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-btn-height')); ?>">
 				</div>
 			</div>
 			<div class="row form-group">
@@ -276,7 +276,7 @@
 					<?php _e('Title', SG_POPUP_TEXT_DOMAIN); ?>:
 				</label>
 				<div class="col-md-6">
-					<input type="text" name="sgpb-subs-btn-title" id="subs-btn-title" class="form-control js-subs-btn-title sgpb-full-width-events" data-subs-rel="js-subs-submit-btn" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-btn-title')); ?>">
+					<input type="text" name="sgpb-subs-btn-title" id="subs-btn-title" class="form-control js-subs-btn-title sgpb-full-width-events" data-field-type="submit" data-subs-rel="js-subs-submit-btn" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-btn-title')); ?>">
 				</div>
 			</div>
 			<div class="row form-group">
@@ -293,7 +293,7 @@
 				</label>
 				<div class="col-md-6">
 					<div class="sgpb-color-picker-wrapper">
-						<input class="sgpb-color-picker js-subs-color-picker" data-subs-rel="js-subs-submit-btn" data-style-type="background-color" type="text" name="sgpb-subs-btn-bg-color" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-btn-bg-color')); ?>" >
+						<input class="sgpb-color-picker js-subs-color-picker" data-field-type="submit" data-subs-rel="js-subs-submit-btn" data-style-type="background-color" type="text" name="sgpb-subs-btn-bg-color" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-btn-bg-color')); ?>" >
 					</div>
 				</div>
 			</div>
@@ -303,7 +303,7 @@
 				</label>
 				<div class="col-md-6">
 					<div class="sgpb-color-picker-wrapper">
-						<input class="sgpb-color-picker js-subs-color-picker" data-subs-rel="js-subs-submit-btn" data-style-type="color" type="text" name="sgpb-subs-btn-text-color" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-btn-text-color')); ?>" >
+						<input class="sgpb-color-picker js-subs-color-picker" data-field-type="submit" data-subs-rel="js-subs-submit-btn" data-style-type="color" type="text" name="sgpb-subs-btn-text-color" value="<?php echo esc_html($popupTypeObj->getOptionValue('sgpb-subs-btn-text-color')); ?>" >
 					</div>
 				</div>
 			</div>

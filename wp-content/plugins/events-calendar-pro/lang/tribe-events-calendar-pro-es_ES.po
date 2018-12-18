@@ -181,19 +181,19 @@ msgstr "Provincia/estado predeterminados"
 msgid "Loading %s"
 msgstr "Cargando %s"
 
-#: src/Tribe/Main.php:781
+#: src/Tribe/Main.php:784
 msgid "Check this to show the After HTML from the text area below on events displayed via shortcode."
 msgstr "Marque esta casilla para mostrar el HTML de la siguiente área de texto Abajo de los eventos que se muestran a través de un shortcode."
 
-#: src/Tribe/Main.php:780
+#: src/Tribe/Main.php:783
 msgid "Enable the After HTML (below) on shortcodes."
 msgstr "Permitir HTML Abajo de los shortcodes."
 
-#: src/Tribe/Main.php:768
+#: src/Tribe/Main.php:771
 msgid "Check this to show the Before HTML from the text area below on events displayed via shortcode."
 msgstr "Marque esta casilla para mostrar el HTML de la siguiente área de texto Arriba de los eventos que se muestran a través de un shortcode."
 
-#: src/Tribe/Main.php:767
+#: src/Tribe/Main.php:770
 msgid "Enable the Before HTML (below) on shortcodes."
 msgstr "Permitir HTML Arriba de los shortcodes."
 
@@ -986,26 +986,26 @@ msgstr "Todos los %s"
 msgid "$template_object is expected to be an actual object"
 msgstr "Se espera que $template_object sea un objeto verdadero"
 
-#: src/Tribe/Main.php:2072
+#: src/Tribe/Main.php:2075
 msgid "all"
 msgstr "todos"
 
-#: src/Tribe/Main.php:621
+#: src/Tribe/Main.php:624
 msgctxt "debug recurrence"
 msgid "Invalid instance of a recurring event was requested ($1%s) redirecting to $2%s"
 msgstr "Se solicitó una instancia de un evento recurrente ($1%s) que redireccione a $2%s"
 
-#: src/Tribe/Main.php:586 src/Tribe/Main.php:599
+#: src/Tribe/Main.php:589 src/Tribe/Main.php:602
 msgctxt "debug recurrence"
 msgid "incorrect slug"
 msgstr "slug incorrecto"
 
-#: src/Tribe/Main.php:555
+#: src/Tribe/Main.php:558
 msgctxt "debug recurrence"
 msgid "invalid date"
 msgstr "fecha incorrecta"
 
-#: src/Tribe/Main.php:537
+#: src/Tribe/Main.php:540
 msgctxt "debug recurrence"
 msgid "Unknown"
 msgstr "Desconocido"
@@ -1040,7 +1040,7 @@ msgstr "No es una entrada de evento."
 msgid "Times:"
 msgstr "Veces:"
 
-#: src/Tribe/Main.php:1968
+#: src/Tribe/Main.php:1971
 msgid "Events Calendar PRO"
 msgstr "Events Calendar PRO"
 
@@ -1152,7 +1152,7 @@ msgstr "Color de fondo de foto"
 msgid "Photo View"
 msgstr "Vista de foto"
 
-#: src/Tribe/Main.php:211
+#: src/Tribe/Main.php:214
 msgid "Month/Week View"
 msgstr "Vista de mes/semana"
 
@@ -1288,15 +1288,15 @@ msgstr "Recurrencias customizadas deben tener seleccionado un tipo."
 msgid "Could not process queue for event %1$d: %2$s"
 msgstr "No se pudo procesar lista de espera para evento %1$d: %2$s"
 
-#: src/Tribe/Main.php:473
+#: src/Tribe/Main.php:476
 msgid "%1$s for week of %2$s"
 msgstr "%1$s para semana del %2$s"
 
-#: src/Tribe/Main.php:467
+#: src/Tribe/Main.php:470
 msgid "All %1$s for %2$s"
 msgstr "Todos %1$s para %2$s"
 
-#: src/Tribe/Main.php:799
+#: src/Tribe/Main.php:802
 msgid "Thanks for buying Events Calendar PRO! From all of us at Modern Tribe, we sincerely appreciate it. If you're looking for help with Events Calendar PRO, you've come to the right place. We are committed to helping make your calendar be spectacular... and hope the resources provided below will help get you there."
 msgstr "¡Gracias para comprar Events Calendar PRO! Todo los que formamos parte de Modern Tribe lo apreciamos sinceramente. Si estás buscando ayuda para usar The Events Calendar, has venido al lugar correcto. Nos comprometemos a hacer que tu calendario sea espectacular... y esperamos que los recursos proporcionados a continuación te ayuden a conseguir tu objetivo."
 
@@ -2061,73 +2061,73 @@ msgstr "Calendario de Eventos"
 msgid "The events calendar mini calendar widget"
 msgstr "Widget de mini calendario de The Events Calendar"
 
-#: src/Tribe/Main.php:1903
+#: src/Tribe/Main.php:1906
 msgid "Week Of"
 msgstr "Semana de"
 
-#: src/Tribe/Main.php:1886
+#: src/Tribe/Main.php:1889
 msgid "Photo"
 msgstr "Foto"
 
-#: src/Tribe/Main.php:1868
+#: src/Tribe/Main.php:1871
 msgid "Week"
 msgstr "Semana"
 
-#: src/Tribe/Main.php:1639
+#: src/Tribe/Main.php:1642
 msgid "View All Add-Ons"
 msgstr "Ver todos los Add-Ons"
 
-#: src/Tribe/Main.php:1637
+#: src/Tribe/Main.php:1640
 msgid "Support"
 msgstr "Soporte"
 
-#: src/Tribe/Main.php:1577
+#: src/Tribe/Main.php:1580
 msgid "Organizer draft updated. <a target=\"_blank\" href=\"%s\">Preview organizer</a>"
 msgstr "Borrador del Organizador actualizado. <a target=\"_blank\" href=\"%s\">Previsualizar Organizador</a>"
 
-#: src/Tribe/Main.php:1573
+#: src/Tribe/Main.php:1576
 msgid "Organizer scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview organizer</a>"
 msgstr "Agenda del Organizador: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Previsualizar Organizador</a>"
 
-#: src/Tribe/Main.php:1571
+#: src/Tribe/Main.php:1574
 msgid "Organizer submitted. <a target=\"_blank\" href=\"%s\">Preview organizer</a>"
 msgstr "Organizador enviado. <a target=\"_blank\" href=\"%s\">Previsualizar Organizador</a>"
 
-#: src/Tribe/Main.php:1570
+#: src/Tribe/Main.php:1573
 msgid "Organizer published. <a href=\"%s\">View organizer</a>"
 msgstr "Organizador publicado. <a href=\"%s\">Ver organizador</a>"
 
-#: src/Tribe/Main.php:1569
+#: src/Tribe/Main.php:1572
 msgid "Organizer updated. <a href=\"%s\">View organizer</a>"
 msgstr "Organizador actualizado. <a href=\"%s\">Ver organizador</a>"
 
-#: src/Tribe/Main.php:1567
+#: src/Tribe/Main.php:1570
 msgid "Venue draft updated. <a target=\"_blank\" href=\"%s\">Preview venue</a>"
 msgstr "Borrador del Lugar actualizado. <a target=\"_blank\" href=\"%s\">Previsualizar lugar</a>"
 
 #. translators: Publish box date format, see http://php.net/date
-#: src/Tribe/Main.php:1565 src/Tribe/Main.php:1575
+#: src/Tribe/Main.php:1568 src/Tribe/Main.php:1578
 msgid "M j, Y @ G:i"
 msgstr "M j, Y @ G:i"
 
-#: src/Tribe/Main.php:1563
+#: src/Tribe/Main.php:1566
 msgid "Venue scheduled for: <strong>%1$s</strong>. <a target=\"_blank\" href=\"%2$s\">Preview venue</a>"
 msgstr "Lugar previsto para: <strong>%1$s</ strong>. <a target=\"_blank\" href=\"%2$s\">Previsualizar lugar</ a>"
 
-#: src/Tribe/Main.php:1561
+#: src/Tribe/Main.php:1564
 msgid "Venue submitted. <a target=\"_blank\" href=\"%s\">Preview venue</a>"
 msgstr "Lugar enviado. <a href=\"%s\">Ver lugar</a>"
 
 #. translators: %s: date and time of the revision
-#: src/Tribe/Main.php:1560
+#: src/Tribe/Main.php:1563
 msgid "Venue published. <a href=\"%s\">View venue</a>"
 msgstr "Lugar publicado. <a href=\"%s\">Ver lugar</a>"
 
-#: src/Tribe/Main.php:1558
+#: src/Tribe/Main.php:1561
 msgid "Venue updated. <a href=\"%s\">View venue</a>"
 msgstr "Lugar actualizado. <a href=\"%s\">Ver lugar</a>"
 
-#: src/Tribe/Main.php:1530
+#: src/Tribe/Main.php:1533
 msgid "Settings"
 msgstr "Ajustes"
 
@@ -2135,72 +2135,72 @@ msgstr "Ajustes"
 msgid "Address: "
 msgstr "Dirección: "
 
-#: src/Tribe/Main.php:836
+#: src/Tribe/Main.php:839
 msgid "Before posting a new thread, please do a search to make sure your issue hasn't already been addressed. When posting please make sure to provide as much detail about the problem as you can (with screenshots or screencasts if feasible), and make sure that you've identified whether a plugin / theme conflict could be at play in your initial message."
 msgstr "Antes de publicar un nuevo tema, por favor, hacer una búsqueda para asegurarse de que el problema aún no se ha abordado. Por favor, al publicar asegúrese de proporcionar la mayor cantidad de detalles que pueda sobre el problema (con capturas de pantalla o screencasts si es posible). Asegúrese de que ha identificado un conflicto con un plugin / theme (que podría estar en funcionamiento), y comentelo en su mensaje inicial."
 
-#: src/Tribe/Main.php:835
+#: src/Tribe/Main.php:838
 msgid "Our number one goal is helping you succeed, and to whatever extent possible, we'll help troubleshoot and guide your customizations or tweaks. While we won't build your site for you, and we can't guarantee we'll be able to get you 100% integrated with every theme or plugin out there, we'll do all we can to point you in the right direction and to make you -- and your client, as is often more importantly the case -- satisfied."
 msgstr "Nuestro principal objetivo es ayudarle a tener éxito, y en la medida de lo posible le ayudaremos a solucionar problemas y guiar sus personalizaciones o ajustes. Si bien no vamos a construir su sitio web por usted y no podemos garantizar que seremos capaces de conseguir que se integre al 100% con cada theme o plugins existentes, vamos a hacer todo lo que podamos para señalarle la dirección correcta y hacer que usted - y su cliente, como es a menudo más importante aún el caso - queden satisfechos."
 
-#: src/Tribe/Main.php:834
+#: src/Tribe/Main.php:837
 msgid "Users who have purchased an Events Calendar PRO license are granted total access to our %spremium support forums%s. Unlike at the %sWordPress.org support forum%s, where our involvement is limited to identifying and patching bugs, we have a dedicated support team for PRO users. We're on the PRO forums daily throughout the business week, and no thread should go more than 24-hours without a response."
 msgstr "Los usuarios que hayan adquirido una licencia Events Calendar PRO tienen acceso total a nuestros %sforos de soporte Premium%s. A diferencia del %sforo de soporte WordPress.org%s, donde nuestra participación esta limitada a la identificación y solucion de los errores, tenemos un equipo de soporte dedicado para usuarios PRO. Estamos en los foros PRO diariamente a lo largo de la semana laboral, y ningún hilo se queda más de 24 horas sin una respuesta."
 
-#: src/Tribe/Main.php:833
+#: src/Tribe/Main.php:836
 msgid "Written documentation can only take things so far...sometimes, you need help from a real person. This is where our %ssupport forums%s come into play."
 msgstr "La documentación escrita solo le puede ayudar hasta cierto momento... a veces se necesita la ayuda de una persona real. Aquí es donde entran en juego nuestros %sforos de soporte%s."
 
-#: src/Tribe/Main.php:820
+#: src/Tribe/Main.php:823
 msgid "Otherwise, if you're feeling adventurous, you can get started by heading to the Events menu and adding your first event."
 msgstr "De lo contrario, si tiene espíritu de aventura, usted puede comenzar por la sección del menú Eventos y añadir su primer evento."
 
-#: src/Tribe/Main.php:818
+#: src/Tribe/Main.php:821
 msgid "Take care of your license key. Though not required to create your first event, you'll want to get it in place as soon as possible to guarantee your access to support and upgrades. %sHere's how to find your license key%s, if you don't have it handy."
 msgstr "Tenga cuidado con su número de licencia. Aunque no se requiere para crear su primer evento, usted deseara obtener en su sitio tan pronto como sea posible para garantizar su acceso al soporte y actualizaciones. Si usted no la tiene a mano, %s Aquí es donde encontrará el número de licencia%s."
 
-#: src/Tribe/Main.php:816
+#: src/Tribe/Main.php:819
 msgid "%sInstallation/Setup FAQs%s from our support page can help give an overview of what the plugin can and cannot do. This section of the FAQs may be helpful as it aims to address any basic install questions not addressed by the new user primer."
 msgstr "La sección de %sPreguntas frecuentes - Instalación / Configuración%s de nuestra página de soporte le ayudará a tener una visión general de lo que el Plugin puede y no puede hacer. Esta sección de preguntas frecuentes puede ser útil, ya que tiene como objetivo abordar las cuestiones básicas de instalación no comprendidas en el Tutorial \"Instrucciones para el nuevo usuario\"."
 
-#: src/Tribe/Main.php:814
+#: src/Tribe/Main.php:817
 msgid "%sOur New User Primer%s was designed for folks in your exact position. Featuring both step-by-step videos and written walkthroughs that feature accompanying screenshots, the primer aims to take you from zero to hero in no time."
 msgstr "%sInstrucciones para el nuevo usuario%s ha sido diseñado para personas en su posición. Con los dos videos paso a paso y los tutoriales escritos acompañados de imagenes, el iniciador tiene el objetivo de enseñarle y pasar de novato a un usuario experimentado en poco tiempo."
 
-#: src/Tribe/Main.php:811
+#: src/Tribe/Main.php:814
 msgid "If this is your first time using The Events Calendar Pro, you're in for a treat and are already well on your way to creating a first event. Here are some basics we've found helpful for users jumping into it for the first time:"
 msgstr "Si esta es la primera vez que utiliza The Events Calendar Pro, está de enhorabuena y en el buen camino para crear un primer evento. Aquí están algunos fundamentos que encontramos útiles para los usuarios que dan el salto por primera vez:"
 
-#: src/Tribe/Main.php:755
+#: src/Tribe/Main.php:758
 msgid "Check this to only show weekdays on Week View"
 msgstr "Seleccionar esta opción para ver únicamente los días de semana en la Vista Semanal"
 
-#: src/Tribe/Main.php:754
+#: src/Tribe/Main.php:757
 msgid "Hide weekends on Week View"
 msgstr "Esconder fines de semana en Vista Semanal"
 
-#: src/Tribe/Main.php:741
+#: src/Tribe/Main.php:744
 msgid "Enter the format to use for week days. Used when showing days of the week in Week view."
 msgstr "Introduzca el formato a utilizar para los días de semana. Se utiliza cuando se muestran los días de la semana en la vista Semana."
 
-#: src/Tribe/Main.php:740
+#: src/Tribe/Main.php:743
 msgid "Week Day Format"
 msgstr "Formato día de la Semana"
 
-#: src/Tribe/Main.php:728
+#: src/Tribe/Main.php:731
 msgid "Remove related events from the single event view"
 msgstr "Quite eventos relacionados desde la vista del Evento"
 
-#: src/Tribe/Main.php:727
+#: src/Tribe/Main.php:730
 msgid "Hide related events"
 msgstr "Ocultar eventos relacionados"
 
-#: src/Tribe/Editor.php:194 src/Tribe/Main.php:710
+#: src/Tribe/Editor.php:194 src/Tribe/Main.php:713
 #: src/admin-views/event-meta-options.php:3
 msgid "Additional Fields"
 msgstr "Campos Adicionales"
 
-#: src/Tribe/Main.php:708 src/admin-views/tribe-options-defaults.php:35
+#: src/Tribe/Main.php:711 src/admin-views/tribe-options-defaults.php:35
 msgid "Default Content"
 msgstr "Contenido por Defecto"
 
@@ -2208,11 +2208,11 @@ msgstr "Contenido por Defecto"
 msgid "%s for week of %s"
 msgstr "%s para la semana del %s"
 
-#: src/Tribe/Main.php:2074
+#: src/Tribe/Main.php:2077
 msgid "photo"
 msgstr "foto"
 
-#: src/Tribe/Main.php:2073 src/admin-views/event-recurrence.php:108
+#: src/Tribe/Main.php:2076 src/admin-views/event-recurrence.php:108
 #: src/admin-views/event-recurrence.php:372
 msgid "week"
 msgstr "semana"
@@ -2396,7 +2396,7 @@ msgstr "Fecha Final"
 msgid "Start Date"
 msgstr "Fecha Inicio"
 
-#: events-calendar-pro.php:87
+#: events-calendar-pro.php:88
 msgid "To begin using Events Calendar PRO, please install the latest version of <a href=\"%s\" class=\"thickbox\" title=\"%s\">The Events Calendar</a>."
 msgstr "Para poder comenzar a usar Events Calendar PRO, por favor asegurese de tener instalada la última versión de <a href=\"%s\" class=\"thickbox\" title=\"%s\">The Events Calendar</a>."
 

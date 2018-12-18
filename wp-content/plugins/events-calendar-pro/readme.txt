@@ -5,7 +5,7 @@ Tags: events, calendar, event, venue, organizer, dates, date, google maps, confe
 Donate link: http://m.tri.be/29
 Requires at least: 4.5
 Tested up to: 4.9.8
-Stable tag: 4.5
+Stable tag: 4.5.1
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -205,13 +205,18 @@ Our Premium Plugins:
 
 == Changelog ==
 
+= [4.5.1] 2018-12-13 =
+
+* Fix - Disable recurrence information on tooltips
+* Fix - Fallback to default timezone if event timezone is not valid for Countdown Widget
+
 = [4.5] 2018-11-29 =
 
 * Feature - added recurring events support to the Events Date Time block
 * Feature - added default content support to the Organizer and Venue blocks
 * Feature - any configured Additional Field now has a corresponding block in the block editor
 * Feature - added option to Additional Fields settings to include configured fields blocks on new events by default
-* Tweak - exclusion rules and now called exceptions when configuring recurring events in the block editor
+* Tweak - exclusion rules are now called exceptions when configuring recurring events in the block editor
 * Fix - Style regression for series end element with gutenberg style override
 * Tweak - Changed views: `blocks/additional-fields/checkbox`, `blocks/additional-fields/dropdown`, `blocks/additional-fields/radio`, `blocks/additional-fields/text`, `blocks/additional-fields/textarea`, `blocks/additional-fields/url`
 * Language - 2 new strings added, 50 updated, 0 fuzzied, and 0 obsoleted

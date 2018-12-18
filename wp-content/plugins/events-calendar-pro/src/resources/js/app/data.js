@@ -698,6 +698,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FIFTH_LABEL", function() { return FIFTH_LABEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LAST_LABEL", function() { return LAST_LABEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WEEKS_OF_THE_MONTH", function() { return WEEKS_OF_THE_MONTH; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WEEK_NUM_MAPPING_TO_WEEKS_OF_THE_MONTH", function() { return WEEK_NUM_MAPPING_TO_WEEKS_OF_THE_MONTH; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "JANUARY", function() { return JANUARY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FEBRUARY", function() { return FEBRUARY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MARCH", function() { return MARCH; });
@@ -881,6 +882,13 @@ var FIFTH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Fi
 var LAST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Last', 'events-gutenberg');
 
 var WEEKS_OF_THE_MONTH = [FIRST, SECOND, THIRD, FOURTH, FIFTH, LAST];
+var WEEK_NUM_MAPPING_TO_WEEKS_OF_THE_MONTH = {
+	1: FIRST,
+	2: SECOND,
+	3: THIRD,
+	4: FOURTH,
+	5: FIFTH
+};
 
 //
 // ─── MONTHS OF THE YEAR ─────────────────────────────────────────────────────────
@@ -5360,7 +5368,7 @@ function handleAddition(_ref) {
 	var _actions$add;
 
 	var actions = _ref.actions;
-	var start, end, allDay, multiDay, timezone, startMoment, endMoment, startWeekday, startDate, startTime, endDate, endTime, startDateInput, startDateObj, endDateInput, endDateObj;
+	var start, end, allDay, multiDay, timezone, startMoment, endMoment, startMomentDate, startWeekNum, startWeek, startWeekday, startMonth, startDate, startTime, endDate, endTime, startDateInput, startDateObj, endDateInput, endDateObj;
 	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function handleAddition$(_context) {
 		while (1) {
 			switch (_context.prev = _context.next) {
@@ -5401,46 +5409,62 @@ function handleAddition(_ref) {
 				case 20:
 					endMoment = _context.sent;
 					_context.next = 23;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])([startMoment, 'isoWeekday']);
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])([startMoment, 'date']);
 
 				case 23:
-					startWeekday = _context.sent;
+					startMomentDate = _context.sent;
 					_context.next = 26;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toDatabaseDate, startMoment);
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])([Math, 'ceil'], startMomentDate / 7);
 
 				case 26:
+					startWeekNum = _context.sent;
+					startWeek = _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["WEEK_NUM_MAPPING_TO_WEEKS_OF_THE_MONTH"][startWeekNum];
+					_context.next = 30;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])([startMoment, 'isoWeekday']);
+
+				case 30:
+					startWeekday = _context.sent;
+					_context.next = 33;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])([startMoment, 'month']);
+
+				case 33:
+					startMonth = _context.sent;
+					_context.next = 36;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toDatabaseDate, startMoment);
+
+				case 36:
 					startDate = _context.sent;
-					_context.next = 29;
+					_context.next = 39;
 					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toDatabaseTime, startMoment);
 
-				case 29:
+				case 39:
 					startTime = _context.sent;
-					_context.next = 32;
+					_context.next = 42;
 					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toDatabaseDate, endMoment);
 
-				case 32:
+				case 42:
 					endDate = _context.sent;
-					_context.next = 35;
+					_context.next = 45;
 					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toDatabaseTime, endMoment);
 
-				case 35:
+				case 45:
 					endTime = _context.sent;
-					_context.next = 38;
+					_context.next = 48;
 					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toDate, startMoment);
 
-				case 38:
+				case 48:
 					startDateInput = _context.sent;
 					startDateObj = new Date(startDateInput);
-					_context.next = 42;
+					_context.next = 52;
 					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toDate, endMoment);
 
-				case 42:
+				case 52:
 					endDateInput = _context.sent;
 					endDateObj = new Date(endDateInput);
-					_context.next = 46;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.add((_actions$add = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_TYPE, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["SINGLE"]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_ALL_DAY, allDay), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MULTI_DAY, multiDay), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE, startDate), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE_INPUT, startDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE_OBJ, startDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_TIME, startTime), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE, endDate), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE_INPUT, endDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE_OBJ, endDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_TIME, endTime), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_BETWEEN, 1), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_TYPE, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["COUNT"]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT, 7), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_DATE_INPUT, endDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_DATE_OBJ, endDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_DAYS, [startWeekday]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_WEEK, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["FIRST"]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_DAY, startWeekday), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MONTH, []), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_TIMEZONE, timezone), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MULTI_DAY_SPAN, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["NEXT_DAY"]), _actions$add)));
+					_context.next = 56;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.add((_actions$add = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_TYPE, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["SINGLE"]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_ALL_DAY, allDay), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MULTI_DAY, multiDay), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE, startDate), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE_INPUT, startDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE_OBJ, startDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_TIME, startTime), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE, endDate), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE_INPUT, endDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE_OBJ, endDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_TIME, endTime), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_BETWEEN, 1), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_TYPE, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["COUNT"]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT, 7), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_DATE_INPUT, endDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_DATE_OBJ, endDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_DAYS, [startWeekday]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_WEEK, startWeek), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_DAY, startWeekday), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MONTH, [startMonth + 1]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_TIMEZONE, timezone), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MULTI_DAY_SPAN, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["NEXT_DAY"]), _actions$add)));
 
-				case 46:
+				case 56:
 				case 'end':
 					return _context.stop();
 			}

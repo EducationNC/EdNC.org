@@ -50,7 +50,7 @@ class Actions
 		add_filter('wp_insert_post_data', array($this, 'editPublishSettings'), 100, 1);
 		// for change admin popup list order
 		add_action('pre_get_posts', array($this, 'preGetPosts'));
-		add_action('template_redirect',array($this, 'redirectFromPopupPage'));
+		add_action('template_redirect', array($this, 'redirectFromPopupPage'));
 		add_filter('views_edit-popupbuilder', array($this, 'mainActionButtons'), 10, 1);
 		new Ajax();
 	}
@@ -118,7 +118,7 @@ class Actions
 			$currentPostType = $post_type;
 		}
 
-		if (is_single() && SG_POPUP_POST_TYPE == $currentPostType && !is_preview()) {
+		if (!is_admin() && SG_POPUP_POST_TYPE == $currentPostType && !is_preview()) {
 			// it's for seo optimization
 			status_header(301);
 			$homeURL = home_url();

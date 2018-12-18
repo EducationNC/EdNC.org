@@ -426,7 +426,7 @@ SGPBPopup.prototype.setPopupLimitationCookie = function(popupData)
 	}
 	cookie.openingCount = openingCount + 1;
 	cookie.openingPage = currentUrl;
-	var popupShowingLimitExpiry = popupData['sgpb-show-popup-same-user-expiry'];
+	var popupShowingLimitExpiry = parseInt(popupData['sgpb-show-popup-same-user-expiry']);
 
 	SGPBPopup.setCookie(cookieData.cookieName, JSON.stringify(cookie), popupShowingLimitExpiry, currentUrl);
 }
@@ -1897,14 +1897,24 @@ SGPBPopup.setCookie = function(cName, cValue, exDays, cPageLevel)
 	var cookiePageLevel = 'path=/;';
 	var cookieExpirationData = 1;
 	if (!exDays || isNaN(exDays)) {
-		exDays = 365*50;
+		if (!exDays && exDays === 0) {
+			exDays = 'session';
+		}
+		else {
+			exDays = 365*50;
+		}
 	}
 	if (typeof cPageLevel == 'undefined') {
 		cPageLevel = false;
 	}
 
-	expirationDate.setDate(parseInt(expirationDate.getDate() + parseInt(exDays)));
-	cookieExpirationData = expirationDate.toUTCString();
+	if (exDays == 'session') {
+		cookieExpirationData = 0;
+	}
+	else {
+		expirationDate.setDate(parseInt(expirationDate.getDate() + parseInt(exDays)));
+		cookieExpirationData = expirationDate.toUTCString();
+	}
 	var expires = 'expires='+cookieExpirationData;
 
 	if (exDays == -1) {
@@ -2149,7 +2159,10 @@ SgpbEventListener.prototype.sgpbInsideclick = function(listenerObj, eventData)
 
 		targetClick.each(function() {
 			jQuery(this).unbind('click').bind('click', function() {
-				SGPBPopup.closePopup();
+				var dontCloseCurrentPopup = jQuery(this).attr('dontCloseCurrentPopup');
+				if (typeof dontCloseCurrentPopup == 'undefined' || dontCloseCurrentPopup != 'on') {
+					SGPBPopup.closePopup();
+				}
 				popupObj.prepareOpen();
 			});
 		});
@@ -2363,7 +2376,7 @@ SgpbEventListener.CF7EventListener = function(popupId, options)
 				popupId: popupId,
 				eventName: 'sgpbCF7Success'
 			};
-			jQuery(window).trigger('sgpbCF7Success', settings);	
+			jQuery(window).trigger('sgpbCF7Success', settings);
 		});
 	}
 };

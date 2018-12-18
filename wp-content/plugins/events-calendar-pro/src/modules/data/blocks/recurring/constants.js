@@ -134,6 +134,13 @@ export const FIFTH_LABEL = __( 'Fifth', 'events-gutenberg' );
 export const LAST_LABEL = __( 'Last', 'events-gutenberg' );
 
 export const WEEKS_OF_THE_MONTH = [ FIRST, SECOND, THIRD, FOURTH, FIFTH, LAST ];
+export const WEEK_NUM_MAPPING_TO_WEEKS_OF_THE_MONTH = {
+	1: FIRST,
+	2: SECOND,
+	3: THIRD,
+	4: FOURTH,
+	5: FIFTH,
+};
 
 //
 // ─── MONTHS OF THE YEAR ─────────────────────────────────────────────────────────

@@ -3,7 +3,7 @@
 * Plugin Name: Popup Builder
 * Plugin URI: https://popup-builder.com
 * Description: The most complete popup plugin. Html, image, iframe, shortcode, video and many other popup types. Manage popup dimensions, effects, themes and more.
-* Version: 3.1.2
+* Version: 3.1.3
 * Author: Sygnoos
 * Author URI: https://sygnoos.com
 * License: GPLv2

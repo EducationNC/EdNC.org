@@ -66,10 +66,19 @@ describe( 'Shared recurrence sagas', () => {
 			);
 
 			expect( gen.next( endMoment ).value ).toEqual(
+				call( [ startMoment, 'date' ] )
+			);
+			expect( gen.next( 1 ).value ).toBe(
+				call( [ Math, 'ceil' ], 1 / 7 )
+			);
+			expect( gen.next( 1 ).value ).toEqual(
 				call( [ startMoment, 'isoWeekday' ] )
 			);
+			expect( gen.next( 1 ).value ).toEqual(
+				call( [ startMoment, 'month' ] )
+			);
 
- 			expect( gen.next( 1 ).value ).toEqual(
+ 			expect( gen.next( 0 ).value ).toEqual(
 				call( momentUtil.toDatabaseDate, startMoment )
 			);
 			expect( gen.next( args.start_date ).value ).toEqual(

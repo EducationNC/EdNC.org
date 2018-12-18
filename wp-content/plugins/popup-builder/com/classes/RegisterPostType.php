@@ -63,7 +63,7 @@ class RegisterPostType
 			// Exclude_from_search
 			'exclude_from_search' => true,
 			'public'              => true,
-			'has_archive'         => true,
+			'has_archive'         => false,
 			// Where to show the post type in the admin menu
 			'show_ui'             => true,
 			'query_var'           => false,

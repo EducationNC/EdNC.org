@@ -67,8 +67,8 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		 */
 		public $template_namespace = 'events-pro';
 
-		const REQUIRED_TEC_VERSION = '4.7';
-		const VERSION = '4.5';
+		const REQUIRED_TEC_VERSION = '4.7.2-dev';
+		const VERSION = '4.5.1';
 
 		private function __construct() {
 			$this->pluginDir = trailingslashit( basename( EVENTS_CALENDAR_PRO_DIR ) );
@@ -201,6 +201,9 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 			Tribe__Events__Pro__Integrations__Manager::instance()->load_integrations();
 
 			add_action( 'plugins_loaded', array( $this, 'on_plugins_loaded' ) );
+
+			add_action( 'tribe_events_before_event_template_data_date_display', array( $this, 'disable_recurring_info_tooltip' ) );
+			add_action( 'tribe_events_after_event_template_data_date_display', array( $this, 'enable_recurring_info_tooltip' ) );
 		}
 
 		public function filter_month_week_customizer_label( $args, $section_id, $customizer ) {

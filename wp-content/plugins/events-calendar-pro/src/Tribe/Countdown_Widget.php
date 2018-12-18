@@ -182,8 +182,12 @@ if ( ! class_exists( 'Tribe__Events__Pro__Countdown_Widget' ) ) {
 				$use_tz = $startdate->getTimeZone();//Tribe__Events__Timezones::get_event_timezone_string( $event->ID );
 
 				// Get current time, make both times use the same timezone
-				$now = new DateTime( 'now', new DateTimeZone( $use_tz->getName() ) );
-				$startdate->setTimezone( new DateTimeZone( $use_tz->getName() ) );
+				try {
+					$now = new DateTime( 'now', new DateTimeZone( $use_tz->getName() ) );
+					$startdate->setTimezone( new DateTimeZone( $use_tz->getName() ) );
+				} catch ( Exception $e ) {
+					$now = new DateTime( 'now' );
+				}
 
 				// Get the number of seconds remaining until the date in question.
 				// Note: can't use $startdate->getTimestamp() as that negates all the TZ work we just did!

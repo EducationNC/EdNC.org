@@ -69,6 +69,8 @@ class Ajax
 		/*Extension notification panel*/
 		add_action('wp_ajax_sgpb_dont_show_extension_panel', array($this, 'extensionNotificationPanel'));
 		add_action('wp_ajax_sgpb_dont_show_problem_alert', array($this, 'dontShowProblemAlert'));
+		add_action('wp_ajax_sgpb_process_after_submission', array($this, 'sgpbSubsciptionFormSubmittedAction'));
+        add_action('wp_ajax_nopriv_sgpb_process_after_submission', array($this, 'sgpbSubsciptionFormSubmittedAction'));
 	}
 
 	public function dontShowReviewPopup()
@@ -360,20 +362,37 @@ class Ajax
 			$wpdb->query($sql);
 			$res = 1;
 		}
-
 		if ($res) {
-			$userData = array(
-				'email' => $email,
-				'firstName' => $firstName,
-				'lastName' => $lastName
-			);
-			$sendEmails = $this->sendSuccessEmails($popupPostId, $userData);
 			$status = SGPB_AJAX_STATUS_TRUE;
 		}
 
 		echo $status;
 		wp_die();
 	}
+
+	public function sgpbSubsciptionFormSubmittedAction()
+    {
+        check_ajax_referer(SG_AJAX_NONCE, 'nonce');
+        $this->setPostData($_POST);
+
+        $submissionData = $this->getValueFromPost('formData');
+        $popupPostId = (int)$this->getValueFromPost('popupPostId');
+        parse_str($submissionData, $formData);
+        if (empty($_POST)) {
+            echo SGPB_AJAX_STATUS_FALSE;
+            wp_die();
+        }
+        $email = sanitize_email($_POST['emailValue']);
+        $firstName = sanitize_text_field($_POST['firstNameValue']);
+        $lastName = sanitize_text_field($_POST['lastNameValue']);
+        $userData = array(
+            'email' => $email,
+            'firstName' => $firstName,
+            'lastName' => $lastName
+        );
+        $this->sendSuccessEmails($popupPostId, $userData);
+        do_action('sgpbProcessAfterSuccessfulSubmission', $popupPostId, $userData);
+    }
 
 	public function sendSuccessEmails($popupPostId, $subscriptionDetails)
 	{
@@ -409,8 +428,6 @@ class Ajax
 			$reviewEmailTemplate = preg_replace('/\[adminUserName]/', $adminUserName, $reviewEmailTemplate);
 			$sendStatus = wp_mail($adminEmail, $newSubscriberEmailTitle, $reviewEmailTemplate, $newSubscriberEmailHeader); //return true or false
 		}
-
-		do_action('sgpbSubscriptionPlusNotifications', $popupPostId, $subscriptionDetails);
 	}
 
 	public function select2SearchData()

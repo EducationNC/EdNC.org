@@ -5,12 +5,14 @@ require_once(dirname(__FILE__).'/SGPopup.php');
 class SubscriptionPopup extends SGPopup
 {
 	private $data;
+	private $formContent = '';
 
 	public function __construct()
 	{
 		add_filter('sgpbPopupRenderOptions', array($this, 'renderOptions'), 12, 1);
 		add_filter('sgpbAdminJsFiles', array($this, 'adminJsFilter'), 1, 1);
 		add_filter('sgpbAdminCssFiles', array($this, 'adminCssFilter'), 1, 1);
+		add_filter('sgpbSubscriptionForm', array($this, 'subscriptionForm'), 1, 1);
 	}
 
 	private function frontendFilters()
@@ -27,6 +29,16 @@ class SubscriptionPopup extends SGPopup
 	public function getData()
 	{
 		return $this->data;
+	}
+
+	public function setFormContent($formContent)
+	{
+		$this->formContent = $formContent;
+	}
+
+	public function getFormContent()
+	{
+		return $this->formContent;
 	}
 
 	public static function getTablesSql()
@@ -124,6 +136,7 @@ class SubscriptionPopup extends SGPopup
 	{
 		$this->setData($postData);
 		$this->setPostData($postData);
+		
 		$postData['sgpb-subs-fields'] = $this->createFormFieldsData();
 
 		return $postData;
@@ -486,12 +499,25 @@ class SubscriptionPopup extends SGPopup
 	public function getPopupTypeContent()
 	{
 		$this->frontendFilters();
+
+		apply_filters('sgpbSubscriptionForm', $this);
 		$popupContent = $this->getContent();
-		$popupOptions = $this->getOptions();
-		$subsFields = $this->getOptionValue('sgpb-subs-fields');
+		$formContent = $this->getFormContent();
+
+		return $popupContent.$formContent;
+	}
+
+	public function subscriptionForm($popupObj)
+	{
+		if (!is_object($popupObj)) {
+			return '';
+		}
+		$popupContent = '';
+		$popupOptions = $popupObj->getOptions();
+		$subsFields = $popupObj->getOptionValue('sgpb-subs-fields');
 
 		if (empty($subsFields)) {
-			$subsFields = $this->createFormFieldsData();
+			$subsFields = $popupObj->createFormFieldsData();
 		}
 
 		$subsRequiredMessages = '';
@@ -510,12 +536,14 @@ class SubscriptionPopup extends SGPopup
 			'formBackgroundOpacity' => @$popupOptions['sgpb-subs-form-bg-opacity']
 		);
 
-		$validateScript = $this->createValidateObj($subsFields, $validationMessages);
-		$popupContent .= $this->getSubscriptionForm($subsFields);
-		$popupContent .= $this->getSubscriptionValidationScripts($validateScript);
-		$popupContent .= $this->getFormCustomStyles($styleData);
+		$validateScript = $popupObj->createValidateObj($subsFields, $validationMessages);
+		$popupContent .= $popupObj->getSubscriptionForm($subsFields);
+		$popupContent .= $popupObj->getSubscriptionValidationScripts($validateScript);
+		$popupContent .= $popupObj->getFormCustomStyles($styleData);
 
-		return $popupContent;
+		$popupObj->setFormContent($popupContent);
+
+		return $popupObj;
 	}
 
 	public function getSubPopupObj()

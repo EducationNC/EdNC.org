@@ -280,6 +280,10 @@ describe( 'Recurrence constants', () => {
 		test( 'weeks of the month', () => {
 			expect( constants.WEEKS_OF_THE_MONTH ).toEqual( [ 'first', 'second', 'third', 'fourth', 'fifth', 'last' ] );
 		} );
+
+		test( 'week num mapping to weeks of the month', () => {
+			expect( constants.WEEK_NUM_MAPPING_TO_WEEKS_OF_THE_MONTH ).toMatchSnapshot();
+		} );
 	} );
 
 	describe( 'Months of the year', () => {

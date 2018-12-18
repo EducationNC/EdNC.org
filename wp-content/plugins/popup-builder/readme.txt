@@ -7,7 +7,7 @@ Tags: popup, pop up, wordpress popup, popup maker, exit popup, popup builder, wo
 Requires at least: 3.8
 Tested up to: 5.0
 Requires PHP: 5.3.3
-Stable tag: 3.1.2
+Stable tag: 3.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -177,6 +177,15 @@ Go to the Popup Builder settings and set your desired options.
 13. Facebook popup
 
 == Changelog ==
+
+= Version 3.1.3 =
+* Bug fixed related to banner closing.
+* Popup Builder archive page removed.
+* Bug fixed related to blank page of the popups data table.
+* Added popup showing limitation to remember by session.
+* If the user requests Popup's post type page it will be redreceted to homepage.
+* Added new option to not close the initial popup when the second popup is opened with "popup inside another popup" option.
+* Code improvements and minor bug fixes.
 
 = Version 3.1.2 =
 * Bug fixed related to popup view limitation (getting JS error if Popup Limitation is set up).

@@ -1,8 +1,21 @@
 <?php
 namespace sgpb;
+use \SgpbPopupConfig;
 
 class Filters
 {
+	private $activePopupsQueryString = '';
+
+	public function setQueryString($activePopupsQueryString)
+	{
+		$this->activePopupsQueryString = $activePopupsQueryString;
+	}
+
+	public function getQueryString()
+	{
+		return $this->activePopupsQueryString;
+	}
+
 	public function __construct()
 	{
 		$this->init();
@@ -18,7 +31,8 @@ class Filters
 		add_filter('sgpbAdminCssFiles', array($this, 'sgpbAdminCssFiles'), 1, 1);
 		add_filter('sgpbPopupContentLoadToPage', array($this, 'filterPopupContent'), 10, 1);
 		add_filter('the_content', array($this, 'clearContentPreviewMode'), 10, 1);
-		add_filter('posts_where' , array($this, 'excludePostsToShow'), 10, 1);
+		// The priority of this action should be higher than the extensions' init priority.
+		add_action('init', array($this, 'excludePostToShowPrepare'), 99999999);
 		add_filter('preview_post_link', array($this, 'editPopupPreviewLink'), 10, 2);
 		add_filter('upgrader_pre_download', array($this, 'maybeShortenEddFilename'), 10, 4);
 		add_filter('sgpbSavedPostData', array($this, 'savedPostData'), 10, 1);
@@ -26,6 +40,14 @@ class Filters
 		add_filter('sgpbAdditionalMetaboxes', array($this, 'metaboxes'), 10, 1);
 		add_filter('sgpbOptionAvailable', array($this, 'filterOption'), 10, 1);
 		add_filter('export_wp_filename', array($this, 'exportFileName'), 10, 1);
+	}
+
+	public function excludePostToShowPrepare()
+	{
+		SgpbPopupConfig::popupTypesInit();
+		$queryString = SGPopup::getActivePopupsQueryString();
+		$this->setQueryString($queryString);
+		add_filter('posts_where' , array($this, 'excludePostsToShow'), 10, 1);
 	}
 
 	public function exportFileName($fileName)
@@ -226,7 +248,7 @@ class Filters
 				$screen instanceof \WP_Screen &&
 				$screen->id === 'edit-popupbuilder') {
 				if (class_exists('sgpb\SGPopup')) {
-					$activePopupsQuery = SGPopup::getActivePopupsQueryString();
+					$activePopupsQuery = $this->getQueryString();
 					if ($activePopupsQuery && $activePopupsQuery != '') {
 						$where .= $activePopupsQuery;
 					}

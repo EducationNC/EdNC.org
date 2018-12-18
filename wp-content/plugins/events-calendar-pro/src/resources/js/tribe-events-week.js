@@ -243,10 +243,11 @@
 				var $event_target = $( '.tribe-week-grid-block[data-hour="' + event_hour + '"]' );
 
 				// find it's offset from top of main grid container
-				var event_position_top =
-					$event_target.offset().top -
-						$event_target.parent().offset().top -
-						$event_target.parent().scrollTop();
+				var event_position_top = 0;
+
+				if ( $event_target.get(0) ) {
+					event_position_top = $event_target.offset().top - $event_target.parent().offset().top - $event_target.parent().scrollTop();
+				}
 
 				// add the events minutes to the offset (relies on grid block being 60px, 1px per minute, nice)
 				event_position_top = parseInt( Math.round( event_position_top ) ) + parseInt( event_min );

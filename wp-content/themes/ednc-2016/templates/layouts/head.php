@@ -7,6 +7,8 @@
   <?php if (strtotime(get_the_modified_date()) > strtotime(get_the_date())) { ?>
     <meta name="revised" content="<?php echo get_the_modified_date('l, F j, Y'); ?>">
   <?php } ?>
+  <?php echo basic_wp_seo(); ?>
+  <?php echo add_author_meta(); ?>
 
   <link rel="alternate" type="application/rss+xml" title="<?php echo get_bloginfo('name'); ?> Feed" href="<?php echo esc_url(get_feed_link()); ?>">
   <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Merriweather:300,300italic,400,400italic,700,700italic|Open+Sans+Condensed:300" rel="stylesheet" type="text/css" />

@@ -16,6 +16,7 @@ while (have_posts()) : the_post();
     $author_avatar_sized = Resize\mr_image_resize($author_avatar, 140, null, false, '', false);
   }
 
+
   $image_id = get_post_thumbnail_id();
   $featured_image_src = wp_get_attachment_image_src($image_id, 'full');
   $featured_image_lg = wp_get_attachment_image_src($image_id, 'large');
@@ -24,6 +25,7 @@ while (have_posts()) : the_post();
 
   $column = wp_get_post_terms(get_the_id(), 'column');
   $category = wp_get_post_terms(get_the_id(), 'category');
+
   if ( ! empty($column) ) {
     $banner = wp_get_attachment_image_src( $column[0]->term_image, 'full' );
     $banner_slug = $column[0]->slug;
@@ -97,7 +99,7 @@ while (have_posts()) : the_post();
               <div class="row">
                 <div class="col-md-8 col-centered">
                   <div class="h1"><?php //echo $banner_name; ?></div>
-                  <?php //if ($author_avatar) 
+                  <?php //if ($author_avatar)
 				  { ?>
                     <div class="avatar avatar-header hidden-xs">
                       <img src="<?php //echo $author_avatar_sized['url']; ?>" alt="<?php //the_author(); ?>" />
@@ -197,6 +199,7 @@ while (have_posts()) : the_post();
               $thumb_id = get_post_thumbnail_id();
               $thumb_post = get_post($thumb_id);
 
+
               if ($thumb_post->post_excerpt) {
                 ?>
                 <div class="caption extra-bottom-margin">
@@ -205,8 +208,17 @@ while (have_posts()) : the_post();
                 <?php
               }
               echo '</div>';
-            } ?>
+            }
+            $post_categories = get_the_category(get_the_ID());
 
+// You might have more than one
+// I'll get the first for the sake of the example
+$term = get_option( "taxonomy_" . $post_categories[0]->term_id );
+
+print_r($term['featured']);
+
+            // echo get_the_author_meta('display_name', $author_id);
+            ?>
             <?php the_content(); ?>
 
             <?php
@@ -273,5 +285,5 @@ while (have_posts()) : the_post();
     </footer>
   </article>
 
- 
+
 <?php endwhile; ?>

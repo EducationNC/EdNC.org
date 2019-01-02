@@ -48,7 +48,10 @@ use Roots\Sage\Nav;
       <div class="btn-group">
         <a href="http://m.me/educationnc" target="_blank" class="btn btn-info btn-fb-msg" ><img src="https://www.ednc.org/wp-content/uploads/2017/04/facebook-messanger-icon-new.png" alt="facebook">Message</a>
         <a href="#" class="btn btn-default" data-toggle="modal" data-target="#emailSignupModal">Subscribe</a>
-        <a href="https://support.ednc.org/donate" class="btn btn-primary">Donate</a>
+        <!-- <a href="https://support.ednc.org/donate" class="btn btn-primary">Donate</a> -->
+
+        <?php $events_page = get_post(69571); ?>
+        <a class="btn btn-primary" href="<?php echo get_permalink($events_page->ID); ?>"><?php echo $events_page->post_title; ?></a>
       </div>
     </div>
   </nav>

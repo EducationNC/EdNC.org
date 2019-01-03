@@ -55,5 +55,6 @@
     "run-sequence": "^2.2.1",
     "traverse": "^0.6.6",
     "wiredep": "^4.0.0"
-  }
+  },
+  "dependencies": {}
 }

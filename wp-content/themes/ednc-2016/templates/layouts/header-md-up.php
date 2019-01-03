@@ -50,8 +50,8 @@ use Roots\Sage\Nav;
         <a href="#" class="btn btn-default" data-toggle="modal" data-target="#emailSignupModal">Subscribe</a>
         <!-- <a href="https://support.ednc.org/donate" class="btn btn-primary">Donate</a> -->
 
-        <?php $events_page = get_post(69571); ?>
-        <a class="btn btn-primary" href="<?php echo get_permalink($events_page->ID); ?>"><?php echo $events_page->post_title; ?></a>
+        <!-- <a class="btn btn-primary" href="<?php echo get_permalink($events_page->ID); ?>"><?php echo $events_page->post_title; ?></a> -->
+        <a class="btn btn-primary" href="<?php echo get_page_link( get_page_by_title( Donate )->ID ); ?>">Donate</a>
       </div>
     </div>
   </nav>

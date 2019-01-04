@@ -4,10 +4,20 @@
 
 .donate-content {
   padding: 3em;
+
+  @media (max-width: $screen-sm-min) {
+    padding: 2em;
+  }
 }
+
+
 
 .donate-iframe {
   padding: 3em;
+
+  @media (max-width: $screen-sm-min) {
+    padding: 2em;
+  }
 }
 
 .donorbox {

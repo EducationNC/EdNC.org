@@ -33,7 +33,7 @@
         <div class="donate-iframe">
           <script src="https://donorbox.org/widget.js" paypalExpress="false"></script>
           <iframe class="donorbox" src="https://donorbox.org/embed/donation-page-8?default_interval=m" height="685px" width="100%"
-          style="min-width:310px; max-height:none!important" seamless="seamless" name="donorbox"
+          style="min-width:250px; max-height:none!important" seamless="seamless" name="donorbox"
           frameborder="0" scrolling="no" allowpaymentrequest></iframe>
           <i>EducationNC is a 501(c)(3) nonprofit, EIN # 20-5625322. Your entire contribution is
           tax deductible. You will not receive any goods or services in return for this contribution.

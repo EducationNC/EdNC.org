@@ -17,8 +17,8 @@ use Roots\Sage\Nav;
             <a class="icon-search" id="icon-search" href="javascript:void(0);"></a>
           </div>
         </li>
-        <!-- <li><a class="icon-facebook" href="https://facebook.com/educationnc" target="_blank"></a></li>
-        <li><a class="icon-twitter" href="https://twitter.com/educationnc" target="_blank"></a></li> -->
+        <li><a class="icon-facebook" href="https://facebook.com/educationnc" target="_blank"></a></li>
+        <li><a class="icon-twitter" href="https://twitter.com/educationnc" target="_blank"></a></li>
         <li><a class="icon-youtube" href="https://www.youtube.com/channel/UCJto5My-_AVw1Nx5AGq8TEQ" target="_blank"></a></li>
         <li><a class="icon-instagram" href="https://instagram.com/educationnc" target="_blank"></a></li>
         <li><a class="icon-rss" href="<?php echo get_bloginfo('rss2_url'); ?>"></a></li>
@@ -48,7 +48,10 @@ use Roots\Sage\Nav;
       <div class="btn-group">
         <a href="http://m.me/educationnc" target="_blank" class="btn btn-info btn-fb-msg" ><img src="https://www.ednc.org/wp-content/uploads/2017/04/facebook-messanger-icon-new.png" alt="facebook">Message</a>
         <a href="#" class="btn btn-default" data-toggle="modal" data-target="#emailSignupModal">Subscribe</a>
-        <a href="https://support.ednc.org/donate" class="btn btn-primary">Donate</a>
+        <!-- <a href="https://support.ednc.org/donate" class="btn btn-primary">Donate</a> -->
+
+        <!-- <a class="btn btn-primary" href="<?php echo get_permalink($events_page->ID); ?>"><?php echo $events_page->post_title; ?></a> -->
+        <a class="btn btn-primary" href="<?php echo get_page_link( get_page_by_title( Donate )->ID ); ?>">Donate</a>
       </div>
     </div>
   </nav>

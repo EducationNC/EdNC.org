@@ -40,7 +40,7 @@ use Roots\Sage\Nav;
       <li class="text-center">
         <div class="btn-group">
           <a href="#" class="btn btn-default" data-toggle="modal" data-target="#emailSignupModal">Subscribe</a>
-          <a href="https://support.ednc.org/donate" class="btn btn-primary">Donate</a>
+          <a class="btn btn-primary" href="<?php echo get_page_link( get_page_by_title( Donate )->ID ); ?>">Donate</a>
         </div>
       </li>
     </ul>

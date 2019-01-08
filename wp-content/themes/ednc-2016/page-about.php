@@ -14,7 +14,7 @@
       <?php
       $args = array(
         'post_type' => 'bio',
-        'post__in' => array(1647, 1663, 13081, 26641, 32468, 26684, 46947, 41796, 52642, 49249),   // Mebane, Alex, Nation, Liz, Nancy, Laura37074, , Molly, Caroline, Analisa, Yasmin, Robert
+        'post__in' => array(1647, 1663, 13081, 26641, 32468, 26684, 46947, 41796, 52642, 49249,  65207),   // Mebane, Alex, Nation, Liz, Nancy, Laura37074, , Molly, Caroline, Analisa, Yasmin, Robert, Rupen
         'posts_per_page' => -1,
         'orderby' => 'post__in',
         'order' => 'ASC'
@@ -28,7 +28,7 @@
         <div class="row">
           <div class="col-xs-5">
             <a href="<?php the_permalink(); ?>">
-              <?php the_post_thumbnail('full'); ?>
+              <?php the_post_thumbnail('bio-headshot'); ?>
             </a>
           </div>
           <div class="col-xs-7">

@@ -1252,7 +1252,7 @@ register_field_group(array (
 			'toolbar' => 'basic',
 			'media_upload' => 0,
 		),
-		
+
 	),
 	'location' => array (
 		array (

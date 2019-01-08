@@ -103,7 +103,22 @@
 }
 
 .extra-bottom-margin {
-  margin-bottom: 3em;
+  margin-bottom: 2em;
+  min-height: 475px;
+}
+
+@media only (max-width: 1200px) {
+  .extra-bottom-margin {
+    margin-bottom: 0em;
+    min-height: 570px;
+  }
+}
+
+@media only (max-width: 1000px) {
+  .extra-bottom-margin {
+    margin-bottom: 2em;
+    min-height: 300px;
+  }
 }
 
 .vertical-center {

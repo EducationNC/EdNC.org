@@ -13,6 +13,7 @@ if (
   $author == 'annelisa-sorrells' ||
   $author == 'robert-kinlaw' ||
   $author == 'ybendaas' ||
+  $author == 'rupen.fofaria' ||
   $author == 'staff'
 ) {
   $bg_color = '#64184B'; // $plum-darker;
@@ -138,7 +139,7 @@ if ($column) {
             if ($post_type == 'boardnotes') {
               echo '<span ' . $style . '>BoardNotes</span>';
             } else {
-              echo '&nbsp;';  
+              echo '&nbsp;';
             }
           }
         }

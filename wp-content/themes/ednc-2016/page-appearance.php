@@ -47,7 +47,7 @@
                 ';
 
             $posts_count = array(); // Holds all term post counts in an array
-            $terms_array = array();  // Holds all term names in an array 
+            $terms_array = array();  // Holds all term names in an array
 
                 $args = array(
                     'posts_per_page'    => -1,
@@ -59,7 +59,7 @@
                             'taxonomy'          => 'appearance',
                             'field'             => 'slug',
                             'terms'             => $term_slugs,
-                            'include_children'  => false 
+                            'include_children'  => false
                         ),
                     ),
                 );
@@ -76,7 +76,7 @@
                             foreach ( $terms as $term ) {
                                 $terms_array[] = $term->slug;
                             }
-                        } 
+                        }
 
                     endwhile;
                 endif;
@@ -97,7 +97,7 @@
                         <td class="chart-count">'.$count.'</td>
                     </tr>
                 ';
-        }   
+        }
 
             echo '
                 <tfoot>
@@ -111,7 +111,7 @@
             echo '
                 </tbody>
                 </table>
-                '; 
+                ';
     } // end of year-based list
 
 ?>

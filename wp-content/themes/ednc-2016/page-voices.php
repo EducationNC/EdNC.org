@@ -10,7 +10,7 @@
       <?php
       $args = array(
         'post_type' => 'bio',
-        'post__in' => array(1647, 1663, 13081, 26641, 32468,  26684, 46947, 41796, 52642, 49249),   // Mebane, Alex, Nation, Liz, Nancy, Laura 37074,, Molly, Caroline, Analisa, Yasmin, Robert 
+        'post__in' => array(1647, 1663, 13081, 26641, 32468, 26684, 46947, 41796, 52642, 49249, 65207),   // Mebane, Alex, Nation, Liz, Nancy, Laura37074, , Molly, Caroline, Analisa, Yasmin, Robert, Rupen 
         'posts_per_page' => -1,
         'orderby' => 'post__in',
         'order' => 'ASC'
@@ -45,7 +45,7 @@
 
     <div class="row specialists">
       <div class="col-xs-12">
-        
+
         <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="y2018">
             <?php
@@ -101,7 +101,7 @@
 
     <div class="row correspondents">
       <div class="col-xs-12">
-        
+
         <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="y2018">
             <?php
@@ -154,7 +154,7 @@
 
     <div class="row edambassadors">
       <div class="col-xs-12">
-        
+
         <div class="tab-content">
       <div role="tabpanel" class="tab-pane active" id="y2018">
             <?php
@@ -199,7 +199,7 @@
             <?php endwhile; endif; wp_reset_query(); ?>
           </div>
     <div class="row">
- 
+
       <div class="col-xs-12">
         <h3 class="section-header">Contributors</h3>
       </div>
@@ -321,7 +321,7 @@
                 )
               )
             );
-       
+
      $contributors = new WP_Query($args);
 
             if ($contributors->have_posts()) : while ($contributors->have_posts()) : $contributors->the_post();

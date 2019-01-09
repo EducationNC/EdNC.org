@@ -41,6 +41,7 @@ foreach ($sage_includes as $file) {
 }
 unset($file, $filepath);
 
+
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 function my_theme_enqueue_styles() {
     wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
@@ -52,7 +53,7 @@ function admin_style() {
   wp_enqueue_style('admin-styles', get_template_directory_uri().'/admin.css');
 }
 add_action('admin_enqueue_scripts', 'admin_style');
-   
+
 /*ADMIN DASHBOARD AUTO SELECT TAXONOMY*/
 function set_default_object_terms( $post_id, $post ) {
 	if ( 'publish' === $post->post_status && $post->post_type === 'reach-nc-poll' ) {
@@ -70,7 +71,7 @@ function set_default_object_terms( $post_id, $post ) {
 }
 add_action( 'save_post', 'set_default_object_terms', 0, 2 );
 
-function posts_orderby_lastname ($orderby_statement) 
+function posts_orderby_lastname ($orderby_statement)
 {
 	$orderby_statement = "RIGHT(post_title, LOCATE(' ', REVERSE(post_title)) - 1) ASC";
     return $orderby_statement;
@@ -82,8 +83,8 @@ function my_recent_posts_shortcode($atts){
 	$a = shortcode_atts( array(
 		'item' => 'item',
 	), $atts );
-	
-	
+
+
 	 $q = new WP_Query(
 	   array( 'orderby' => 'date', 'posts_per_page' => $a['item'],)
 	 );
@@ -91,13 +92,13 @@ function my_recent_posts_shortcode($atts){
 
 	while($q->have_posts()) : $q->the_post();
 
-		 get_template_part('templates/layouts/block', 'post-shortcode'); 
+		 get_template_part('templates/layouts/block', 'post-shortcode');
 
 	endwhile;
 
 	wp_reset_query();
 
-	
+
 	$output = ob_get_clean();  return $output;
 }
 
@@ -109,7 +110,7 @@ add_filter( 'pre_get_posts', 'exclude_private_post' );
 function exclude_private_post( $query ) {
 		$excluded_ids  = array();
 		$id;
-	
+
     if ( !is_user_logged_in() && ($query->is_search() || $query->is_main_query()) ) {
 
 		/*
@@ -127,12 +128,12 @@ function exclude_private_post( $query ) {
 				'compare'	=> 'LIKE'
 			)
         ) );
-		
+
 		$args = array( 'post_type' => 'reach-nc-poll', 'meta_key' => 'reach_privacy', 'meta_value'	=> 'Private');
 		$loop = new WP_Query( $args );
-		while ( $loop->have_posts() ) : $loop->the_post();  
+		while ( $loop->have_posts() ) : $loop->the_post();
 			$excluded_ids[] = get_the_ID() ;
-		endwhile; 
+		endwhile;
 		$query->set( 'post__not_in',$excluded_ids );
 		*/
     }
@@ -161,6 +162,6 @@ function exclude_private_post( $query ) {
 		DO NOTHING
 		*/
     }
-	
+
     return $query;
 }

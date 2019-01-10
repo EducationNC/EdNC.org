@@ -24,7 +24,7 @@
 
       if ($about->have_posts()) : while ($about->have_posts()) : $about->the_post(); ?>
 
-      <div class="col-md-6 extra-bottom-margin">
+      <div class="col-md-6 extra-bottom-margin-author">
         <div class="row">
           <div class="col-xs-5">
             <a href="<?php the_permalink(); ?>">

@@ -48,7 +48,7 @@ use Roots\Sage\Titles;
 	body .text-box .gform_wrapper .gform_body .gform_fields .gfield input[type=text],
 	body .text-box .gform_wrapper .gform_body .gform_fields .gfield input[type=email],
 	body .text-box .gform_wrapper .gform_body .gform_fields .gfield input[type=tel]  {
-		border: 2px solid black;
+		border: 2px solid #44474D;
 		border-radius: 0px;
 	}
 
@@ -63,7 +63,7 @@ use Roots\Sage\Titles;
 	}
 
 	.content-box p {
-		color: black;
+		color: #44474D;
 	}
 	.small-content .content-box {
 		/* background-color: #DCDfe5; */
@@ -71,8 +71,12 @@ use Roots\Sage\Titles;
 		opacity: 0.5; */
 	}
 	.fs-bottom {
-		width: 60%;
-		margin: 0 auto;
+		margin-top: 3em;
+		/* border: 1px solid black; */
+	}
+	.fs-bottom img {
+		display:block;
+		margin:auto;
 	}
 	@media (max-width: 980px){
 	}
@@ -84,7 +88,7 @@ use Roots\Sage\Titles;
 
 <?php while (have_posts()) : the_post(); ?>
 <div class="fs-bottom">
-	<img class="" src="http://edncstaging.wpengine.com/wp-content/uploads/2019/01/PeoplesSession-LandingPage-howitworks-3.png" alt="" />
+	<img class="" src="http://edncstaging.wpengine.com/wp-content/uploads/2019/01/Untitled-3.jpg" alt="" />
 </div>
 
 <div class="text-box">

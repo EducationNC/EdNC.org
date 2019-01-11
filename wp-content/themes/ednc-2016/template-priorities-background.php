@@ -1,6 +1,6 @@
 <?php
 /*
-Template Name: Priorities NBS
+Template Name: Priorities-image-background
 */
 
 use Roots\Sage\Titles;
@@ -19,7 +19,6 @@ use Roots\Sage\Titles;
 
 
 
-/** Background Image **/
 .bgimg {
   position: fixed;
   z-index: -1;
@@ -27,9 +26,10 @@ use Roots\Sage\Titles;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-image: url(http://edncstaging.wpengine.com/wp-content/uploads/2019/01/1X2A8765-new.jpg);
+  background-image: url(http://edncstaging.wpengine.com/wp-content/uploads/2019/01/PeoplesSession-LandingPage-howitworks-3.png);
   background-size: cover;
   background-position: center;
+	opacity: 0.2;
 
   &::before {
     content: 'Media Query: Max (larger than 900px by 720px)';
@@ -92,6 +92,8 @@ use Roots\Sage\Titles;
 	  text-align: center;
 	  color: #fff;
 	  background: rgba(#000, 0.8);
+		display: flex;
+		justify-content: space-around;
 	}
 
 	.content-container {
@@ -103,7 +105,7 @@ use Roots\Sage\Titles;
 	}
 
 	h4.light, h1.light {
-		color: white;
+		color: black;
 	 	text-align: left;
 	}
 
@@ -111,33 +113,36 @@ use Roots\Sage\Titles;
 		padding: 2em;
 		width: 40%;
 		display: inline-block;
-		background-color: black;
-		opacity: 0.7;
 	 	text-align: left;
+		background: rgba(255, 255, 255, 1);
+		border: 1px solid black;
 	}
 
 	body .text-box .gform_wrapper .gform_body .gform_fields .gfield input[type=text],
 	body .text-box .gform_wrapper .gform_body .gform_fields .gfield input[type=email],
 	body .text-box .gform_wrapper .gform_body .gform_fields .gfield input[type=tel]  {
-		border: 1px solid black;
+		border: 2px solid black;
 		border-radius: 0px;
 	}
-	body .text-box .gform_wrapper .gform_body .gform_fields .gfield label {
-		color: white;
-	}
-
 	.small-content {
 		padding: 2em;
 		width: 30%;
 		display: inline-block;
+		background: rgba(255, 255, 255, 1);
+		border: 1px solid black;
 	}
 	.content-box {
 		padding: 1em;
 	}
+
+	.content-box p {
+		color: black;
+		opacity: 1;
+	}
 	.small-content .content-box {
 		/* background-color: #DCDfe5; */
-		background-color: black;
-		opacity: 0.5;
+		/* background-color: black;
+		opacity: 0.5; */
 	}
 	@media (max-width: 980px){
 	}
@@ -148,7 +153,6 @@ use Roots\Sage\Titles;
 </style>
 
 <?php while (have_posts()) : the_post(); ?>
-
 <div class="bgimg"></div>
 <div class="text-box">
 	<div class="large-content">

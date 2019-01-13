@@ -71,6 +71,22 @@
   }
 }
 
+.block-person-min-height {
+  min-height: 120px;
+}
+
+@media only (max-width: 1200px) {
+  .block-person-min-height {
+    min-height: 120px;
+  }
+}
+
+@media only (max-width: 1000px) {
+  .block-person-min-height {
+    min-height: 120px;
+  }
+}
+
 .staff, .ncga {
   @media (max-width: $screen-xs-max) {
     .block-person:nth-child(2n + 1) {

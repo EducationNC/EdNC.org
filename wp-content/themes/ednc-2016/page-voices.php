@@ -10,7 +10,7 @@
       <?php
       $args = array(
         'post_type' => 'bio',
-        'post__in' => array(1647, 1663, 13081, 26641, 32468, 26684, 46947, 41796, 52642, 49249, 65207),   // Mebane, Alex, Nation, Liz, Nancy, Laura37074, , Molly, Caroline, Analisa, Yasmin, Robert, Rupen 
+        'post__in' => array(1647, 1663, 13081, 26641, 32468, 26684, 46947, 41796, 52642, 49249, 65207),   // Mebane, Alex, Nation, Liz, Nancy, Laura37074, , Molly, Caroline, Analisa, Yasmin, Robert, Rupen
         'posts_per_page' => -1,
         'orderby' => 'post__in',
         'order' => 'ASC'
@@ -75,7 +75,7 @@
               $user = get_field('user');
               ?>
 
-              <div class="col-sm-4 col-xs-6 block-person">
+              <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
                 <div class="position-relative">
                   <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
                   <div class="row">
@@ -131,7 +131,7 @@
               $user = get_field('user');
               ?>
 
-              <div class="col-sm-4 col-xs-6 block-person">
+              <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
                 <div class="position-relative">
                   <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
                   <div class="row">
@@ -184,7 +184,7 @@
               $user = get_field('user');
               ?>
 
-              <div class="col-sm-4 col-xs-6 block-person">
+              <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
                 <div class="position-relative">
                   <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
                   <div class="row">
@@ -243,7 +243,7 @@
               $user = get_field('user');
               ?>
 
-              <div class="col-sm-4 col-xs-6 block-person">
+              <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
                 <div class="position-relative">
                   <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
                   <div class="row">
@@ -285,7 +285,7 @@
               $user = get_field('user');
               ?>
 
-              <div class="col-sm-4 col-xs-6 block-person">
+              <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
                 <div class="position-relative">
                   <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
                   <div class="row">
@@ -328,7 +328,7 @@
               $user = get_field('user');
               ?>
 
-              <div class="col-sm-4 col-xs-6 block-person">
+              <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
                 <div class="position-relative">
                   <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
                   <div class="row">
@@ -371,7 +371,7 @@
               $user = get_field('user');
               ?>
 
-              <div class="col-sm-4 col-xs-6 block-person">
+              <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
                 <div class="position-relative">
                   <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
                   <div class="row">

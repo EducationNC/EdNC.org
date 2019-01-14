@@ -165,3 +165,31 @@ function exclude_private_post( $query ) {
 
     return $query;
 }
+
+function basic_wp_seo() {
+	global $post;
+	// $default_keywords = 'wordpress, plugins, themes, design, dev, development, security, htaccess, apache, php, sql, html, css, jquery, javascript, tutorials'; // customize
+	$output = '';
+ 	// keywords
+	$keys = get_post_meta($post->ID, 'mm_seo_keywords', true);
+	$cats = get_the_category();
+	$tags = get_the_tags();
+  $terms = get_the_terms( $post->ID , 'appearance' );
+	if (empty($keys)) {
+		if (!empty($cats)) foreach($cats as $cat) $keys .= $cat->name . ', ';
+		// if (!empty($tags)) foreach($tags as $tag) $keys .= $tag->name . ', ';
+    if (!empty($terms)) foreach($terms as $term) $keys .= $term->name . ', ';
+		$keys .= $default_keywords;
+	}
+	$output .= "\t\t" . '<meta name="categories" content="' . esc_attr($keys) . '">' . "\n";
+ 	return $output;
+}
+
+function add_author_meta() {
+     if (is_single()){
+        global $post;
+        $author = get_the_author_meta('display_name', $post->post_author);
+        echo "<meta name=\"author\" content=\"$author\">";
+    }
+}
+// add_action( 'wp_enqueue_scripts', 'add_author_meta' );

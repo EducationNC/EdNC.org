@@ -107,7 +107,7 @@ while (have_posts()) : the_post();
               <div class="row">
                 <div class="col-md-8 col-centered">
                   <div class="h1"><?php //echo $banner_name; ?></div>
-                  <?php //if ($author_avatar) 
+                  <?php //if ($author_avatar)
 				  { ?>
                     <div class="avatar avatar-header hidden-xs">
                       <img src="<?php //echo $author_avatar_sized['url']; ?>" alt="<?php //the_author(); ?>" />
@@ -283,5 +283,5 @@ while (have_posts()) : the_post();
     </footer>
   </article>
 
- 
+
 <?php endwhile; ?>

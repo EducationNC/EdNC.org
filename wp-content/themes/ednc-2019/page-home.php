@@ -9,7 +9,7 @@
   <div class="row donate">
     <div class="col-md-6">
       <div class="donate-content">
-        <h1>Invest in EdNC’s work today.</h1>
+        <!-- <h1>Invest in EdNC’s work today.</h1> -->
         <div class="video-container">
           <iframe src="https://player.vimeo.com/video/281859270" frameborder="0" allowfullscreen></iframe>
         </div>

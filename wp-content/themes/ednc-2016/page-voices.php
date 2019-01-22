@@ -241,7 +241,7 @@
 
 
           <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="2019" role="tabpanel" aria-labelledby="2019-tab">
+            <div class="tab-pane fade active" id="2019" role="tabpanel" aria-labelledby="2019-tab">
               <?php
               $args = array(
                 'post_type' => 'bio',

@@ -198,193 +198,266 @@
 
             <?php endwhile; endif; wp_reset_query(); ?>
           </div>
-    <div class="row">
 
+    <div class="row">
       <div class="col-xs-12">
         <h3 class="section-header">Contributors</h3>
       </div>
     </div>
 
+    <!-- <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+      </div>
+    </nav>
+
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+    </div>
+
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+      </div>
+    </nav> -->
+
+
     <div class="row contributors">
       <div class="col-xs-12">
-        <ul class="nav nav-tabs" role="tablist">
-          <li role="presentation" class="active"><a href="#y2018" aria-controls="y2018" role="tab" data-toggle="tab">2018</a></li>
-			<li role="presentation"><a href="#y2017" aria-controls="y2017" role="tab" data-toggle="tab">2017</a></li>
-          <li role="presentation"><a href="#y2016" aria-controls="y2016" role="tab" data-toggle="tab">2016</a></li>
-	  <li role="presentation"><a href="#y2015" aria-controls="y2015" role="tab" data-toggle="tab">2015</a></li>
+
+        <ul class="nav nav-tabs" id="nav-tab" role="tablist">
+          <li class="nav-item"><a class="nav-link active" id="2019-tab" href="#2019" aria-selected="true" aria-controls="2019" role="tab" data-toggle="tab">2019</a></li>
+          <li class="nav-item"><a class="nav-link" id="2018-tab" href="#2018" aria-selected="false" role="tab" aria-controls="2018" data-toggle="tab">2018</a></li>
+          <li class="nav-item"><a class="nav-link" id="2017-tab" href="#2017" aria-selected="false" role="tab" aria-controls="2017" data-toggle="tab">2017</a></li>
+          <li class="nav-item"><a class="nav-link" id="2016-tab" href="#2016" aria-selected="false" role="tab" aria-controls="2016" data-toggle="tab">2016</a></li>
+          <li class="nav-item"><a class="nav-link" id="2015-tab" href="#2015" aria-selected="false" role="tab" aria-controls="2015" data-toggle="tab">2015</a></li>
         </ul>
 
-        <div class="tab-content">
-			<div role="tabpanel" class="tab-pane active" id="y2018">
-            <?php
-            $args = array(
-              'post_type' => 'bio',
-              'posts_per_page' => -1,
-              'order' => 'ASC',
-              'orderby' => 'meta_value title',
-              'meta_key' => 'last_name_to_sort_by',
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'author-type',
-                  'field' => 'slug',
-                  'terms' => 'contributor'
-                ),
-                array(
-                  'taxonomy' => 'author-year',
-                  'field' => 'slug',
-                  'terms' => '2018'
+
+          <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="2019" role="tabpanel" aria-labelledby="2019-tab">
+              <?php
+              $args = array(
+                'post_type' => 'bio',
+                'posts_per_page' => -1,
+                'order' => 'ASC',
+                'orderby' => 'meta_value title',
+                'meta_key' => 'last_name_to_sort_by',
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'author-type',
+                    'field' => 'slug',
+                    'terms' => 'contributor'
+                  ),
+                  array(
+                    'taxonomy' => 'author-year',
+                    'field' => 'slug',
+                    'terms' => '2019'
+                  )
                 )
-              )
-            );
+              );
 
- $contributors = new WP_Query($args);
+              $contributors = new WP_Query($args);
 
-            if ($contributors->have_posts()) : while ($contributors->have_posts()) : $contributors->the_post();
-              $user = get_field('user');
-              ?>
+              if ($contributors->have_posts()) : while ($contributors->have_posts()) : $contributors->the_post();
+                $user = get_field('user');
+                ?>
 
-              <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
-                <div class="position-relative">
-                  <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
-                  <div class="row">
-                    <div class="col-sm-5">
-                      <div class="circle-image"><?php the_post_thumbnail('bio-headshot'); ?></a></div>
+                <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
+                  <div class="position-relative">
+                    <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
+                    <div class="row">
+                      <div class="col-sm-5">
+                        <div class="circle-image"><?php the_post_thumbnail('bio-headshot'); ?></a></div>
+                      </div>
+                      <div class="col-sm-7"><h4 class="post-title"><?php the_title(); ?></h4></div>
                     </div>
-                    <div class="col-sm-7"><h4 class="post-title"><?php the_title(); ?></h4></div>
                   </div>
                 </div>
-              </div>
 
-            <?php endwhile; endif; wp_reset_query(); ?>
-          </div>
-           <div role="tabpanel" class="tab-pane" id="y2017">
-            <?php
-            $args = array(
-              'post_type' => 'bio',
-              'posts_per_page' => -1,
-              'order' => 'ASC',
-              'orderby' => 'meta_value title',
-              'meta_key' => 'last_name_to_sort_by',
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'author-type',
-                  'field' => 'slug',
-                  'terms' => 'contributor'
-                ),
-                array(
-                  'taxonomy' => 'author-year',
-                  'field' => 'slug',
-                  'terms' => '2017'
+              <?php endwhile; endif; wp_reset_query(); ?>
+            </div>
+
+            <div class="tab-pane fade" id="2018" role="tabpanel" aria-labelledby="2018-tab">
+              <?php
+              $args = array(
+                'post_type' => 'bio',
+                'posts_per_page' => -1,
+                'order' => 'ASC',
+                'orderby' => 'meta_value title',
+                'meta_key' => 'last_name_to_sort_by',
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'author-type',
+                    'field' => 'slug',
+                    'terms' => 'contributor'
+                  ),
+                  array(
+                    'taxonomy' => 'author-year',
+                    'field' => 'slug',
+                    'terms' => '2018'
+                  )
                 )
-              )
-            );
+              );
 
- $contributors = new WP_Query($args);
+              $contributors = new WP_Query($args);
 
-            if ($contributors->have_posts()) : while ($contributors->have_posts()) : $contributors->the_post();
-              $user = get_field('user');
-              ?>
+              if ($contributors->have_posts()) : while ($contributors->have_posts()) : $contributors->the_post();
+                $user = get_field('user');
+                ?>
 
-              <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
-                <div class="position-relative">
-                  <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
-                  <div class="row">
-                    <div class="col-sm-5">
-                      <div class="circle-image"><?php the_post_thumbnail('bio-headshot'); ?></a></div>
+                <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
+                  <div class="position-relative">
+                    <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
+                    <div class="row">
+                      <div class="col-sm-5">
+                        <div class="circle-image"><?php the_post_thumbnail('bio-headshot'); ?></a></div>
+                      </div>
+                      <div class="col-sm-7"><h4 class="post-title"><?php the_title(); ?></h4></div>
                     </div>
-                    <div class="col-sm-7"><h4 class="post-title"><?php the_title(); ?></h4></div>
                   </div>
                 </div>
-              </div>
 
-            <?php endwhile; endif; wp_reset_query(); ?>
-          </div>
+              <?php endwhile; endif; wp_reset_query(); ?>
+            </div>
 
-          <div role="tabpanel" class="tab-pane" id="y2016">
-            <?php
-            $args = array(
-              'post_type' => 'bio',
-              'posts_per_page' => -1,
-              'order' => 'ASC',
-              'orderby' => 'meta_value title',
-              'meta_key' => 'last_name_to_sort_by',
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'author-type',
-                  'field' => 'slug',
-                  'terms' => 'contributor'
-                ),
-                array(
-                  'taxonomy' => 'author-year',
-                  'field' => 'slug',
-                  'terms' => '2016'
+            <div class="tab-pane fade" id="2017" role="tabpanel" aria-labelledby="2017-tab">
+              <?php
+              $args = array(
+                'post_type' => 'bio',
+                'posts_per_page' => -1,
+                'order' => 'ASC',
+                'orderby' => 'meta_value title',
+                'meta_key' => 'last_name_to_sort_by',
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'author-type',
+                    'field' => 'slug',
+                    'terms' => 'contributor'
+                  ),
+                  array(
+                    'taxonomy' => 'author-year',
+                    'field' => 'slug',
+                    'terms' => '2017'
+                  )
                 )
-              )
-            );
+              );
 
-     $contributors = new WP_Query($args);
+              $contributors = new WP_Query($args);
 
-            if ($contributors->have_posts()) : while ($contributors->have_posts()) : $contributors->the_post();
-              $user = get_field('user');
-              ?>
+              if ($contributors->have_posts()) : while ($contributors->have_posts()) : $contributors->the_post();
+                $user = get_field('user');
+                ?>
 
-              <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
-                <div class="position-relative">
-                  <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
-                  <div class="row">
-                    <div class="col-sm-5">
-                      <div class="circle-image"><?php the_post_thumbnail('bio-headshot'); ?></a></div>
+                <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
+                  <div class="position-relative">
+                    <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
+                    <div class="row">
+                      <div class="col-sm-5">
+                        <div class="circle-image"><?php the_post_thumbnail('bio-headshot'); ?></a></div>
+                      </div>
+                      <div class="col-sm-7"><h4 class="post-title"><?php the_title(); ?></h4></div>
                     </div>
-                    <div class="col-sm-7"><h4 class="post-title"><?php the_title(); ?></h4></div>
                   </div>
                 </div>
-              </div>
 
-            <?php endwhile; endif; wp_reset_query(); ?>
-          </div>
+              <?php endwhile; endif; wp_reset_query(); ?>
+            </div>
 
-          <div role="tabpanel" class="tab-pane" id="y2015">
-            <?php
-            $args = array(
-              'post_type' => 'bio',
-              'posts_per_page' => -1,
-              'order' => 'ASC',
-              'orderby' => 'meta_value title',
-              'meta_key' => 'last_name_to_sort_by',
-              'tax_query' => array(
-                array(
-                  'taxonomy' => 'author-type',
-                  'field' => 'slug',
-                  'terms' => 'contributor'
-                ),
-                array(
-                  'taxonomy' => 'author-year',
-                  'field' => 'slug',
-                  'terms' => '2015'
+            <div class="tab-pane fade" id="2016" role="tabpanel" aria-labelledby="2016-tab">
+              <?php
+              $args = array(
+                'post_type' => 'bio',
+                'posts_per_page' => -1,
+                'order' => 'ASC',
+                'orderby' => 'meta_value title',
+                'meta_key' => 'last_name_to_sort_by',
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'author-type',
+                    'field' => 'slug',
+                    'terms' => 'contributor'
+                  ),
+                  array(
+                    'taxonomy' => 'author-year',
+                    'field' => 'slug',
+                    'terms' => '2016'
+                  )
                 )
-              )
-            );
+              );
 
-            $contributors = new WP_Query($args);
+              $contributors = new WP_Query($args);
 
-            if ($contributors->have_posts()) : while ($contributors->have_posts()) : $contributors->the_post();
-              $user = get_field('user');
-              ?>
+              if ($contributors->have_posts()) : while ($contributors->have_posts()) : $contributors->the_post();
+                $user = get_field('user');
+                ?>
 
-              <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
-                <div class="position-relative">
-                  <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
-                  <div class="row">
-                    <div class="col-sm-5">
-                      <div class="circle-image"><?php the_post_thumbnail('bio-headshot'); ?></a></div>
+                <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
+                  <div class="position-relative">
+                    <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
+                    <div class="row">
+                      <div class="col-sm-5">
+                        <div class="circle-image"><?php the_post_thumbnail('bio-headshot'); ?></a></div>
+                      </div>
+                      <div class="col-sm-7"><h4 class="post-title"><?php the_title(); ?></h4></div>
                     </div>
-                    <div class="col-sm-7"><h4 class="post-title"><?php the_title(); ?></h4></div>
                   </div>
                 </div>
-              </div>
 
-            <?php endwhile; endif; wp_reset_query(); ?>
+              <?php endwhile; endif; wp_reset_query(); ?>
+            </div>
+
+            <div class="tab-pane fade" id="2015" role="tabpanel" aria-labelledby="2015-tab">
+              <?php
+              $args = array(
+                'post_type' => 'bio',
+                'posts_per_page' => -1,
+                'order' => 'ASC',
+                'orderby' => 'meta_value title',
+                'meta_key' => 'last_name_to_sort_by',
+                'tax_query' => array(
+                  array(
+                    'taxonomy' => 'author-type',
+                    'field' => 'slug',
+                    'terms' => 'contributor'
+                  ),
+                  array(
+                    'taxonomy' => 'author-year',
+                    'field' => 'slug',
+                    'terms' => '2015'
+                  )
+                )
+              );
+
+              $contributors = new WP_Query($args);
+
+              if ($contributors->have_posts()) : while ($contributors->have_posts()) : $contributors->the_post();
+                $user = get_field('user');
+                ?>
+
+                <div class="col-sm-4 col-xs-6 block-person block-person-min-height">
+                  <div class="position-relative">
+                    <a class="mega-link" href="<?php echo get_author_posts_url($user['ID']); ?>"></a>
+                    <div class="row">
+                      <div class="col-sm-5">
+                        <div class="circle-image"><?php the_post_thumbnail('bio-headshot'); ?></a></div>
+                      </div>
+                      <div class="col-sm-7"><h4 class="post-title"><?php the_title(); ?></h4></div>
+                    </div>
+                  </div>
+                </div>
+
+              <?php endwhile; endif; wp_reset_query(); ?>
+            </div>
+
           </div>
+
         </div>
       </div>
     </div>

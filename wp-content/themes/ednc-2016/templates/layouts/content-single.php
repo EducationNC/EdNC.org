@@ -4,8 +4,8 @@ use Roots\Sage\Resize;
 use Roots\Sage\Extras;
 
 while (have_posts()) : the_post();
+
   $page = get_query_var('page');
-  // $terms = wp_get_post_terms( $post->ID, 'appearance' );
 
   $comments_open = comments_open();
 
@@ -39,7 +39,7 @@ while (have_posts()) : the_post();
     }
   }
   ?>
-  <article <?php post_class('article'); ?>
+  <article <?php post_class('article'); ?>>
 
     <?php if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
       <header class="entry-header hero-image">
@@ -90,9 +90,8 @@ while (have_posts()) : the_post();
     <?php } else {
       if (isset($banner)) {
         ?>
-
-  <?php /*
-    <div class="column-banner <?php //echo $banner_slug; ?>" style="background-image: url('<?php// echo $banner[0]; ?>')">
+		<!--
+        <div class="column-banner <?php //echo $banner_slug; ?>" style="background-image: url('<?php// echo $banner[0]; ?>')">
           <div class="column-name-overlay">
             <div class="container">
               <div class="row">
@@ -109,8 +108,7 @@ while (have_posts()) : the_post();
             </div>
           </div>
         </div>
-    */ ?>
-
+		-->
 		 <div class="column-banner page-header page-header-auto background-purple photo-overlay no-padding" style="">
 			<div class="category-header background-purple no-margin no-padding">
 				<img src="<?php echo $banner[0];  ?>" alt="<?php the_author(); ?>" class="full-width">
@@ -148,7 +146,6 @@ while (have_posts()) : the_post();
         </div>
       </header>
     <?php } ?>
-
 
     <?php if (get_field('longform_intro') && $page < 2) { ?>
       <div class="longform-intro">

@@ -64,6 +64,12 @@
           }
         });
 
+        $(function() {
+          $('#2019').click();
+        });
+
+        $('#2019').click( function() { alert('clicked'); });
+
         // Expandable mobile nav menu
         $('#mobile-nav .expandable-title, #mobile-nav .widgettitle-in-submenu').on(clickortap, function(e) {
           e.preventDefault();
@@ -257,8 +263,8 @@
             $('#chapters').hide();
           }
         });
-	
-		
+
+
 
         // Chapters Affix
         $(window).on('load', function() {
@@ -278,7 +284,7 @@
         $('body').scrollspy({
           target: '#chapters',
           offset: 60
-        }); 
+        });
       }
     },
     // Flash cards
@@ -314,16 +320,16 @@
         /**
          * OWL CAROUSEL 2
          */
-		 
+
         // Init Owl Carousel 2
         var owl = $("#fc-carousel");
-		
+
         // Function to set hash based on navigation link clicks
         $('#fc-left-nav a').on('click', function(e) {
           e.preventDefault();
           window.location.hash = $(this).data('hash');
         });
-	
+
         // Function to set nav states based on slide position
         function navState(type, prop) {
 
@@ -374,7 +380,7 @@
 			  });
 		  }, 2000);
 		});
-	
+
 
         // Manual carousel nav
         $('.fc-nav .fc-next').on(clickortap, function() {
@@ -431,7 +437,7 @@
 
   // Load Events
   $(document).ready(UTIL.loadEvents);
-  
+
   $('#gform_wrapper_6').css("display","block");
 
 })(jQuery); // Fully reference jQuery after this point.

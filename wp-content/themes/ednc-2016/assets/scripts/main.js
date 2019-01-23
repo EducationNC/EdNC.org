@@ -64,12 +64,6 @@
           }
         });
 
-        $(function() {
-          $('#2019').click();
-        });
-
-        $('#2019').click( function() { alert('clicked'); });
-
         // Expandable mobile nav menu
         $('#mobile-nav .expandable-title, #mobile-nav .widgettitle-in-submenu').on(clickortap, function(e) {
           e.preventDefault();

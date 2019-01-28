@@ -71,44 +71,96 @@
   }
 }
 
-// Gravity Forms
-.gform_wrapper {
-  .top_label {
-    li.gfield.gfield {
-      margin-bottom: 1.5em;
-    }
 
-    .gfield_label {
-      margin: 0;
-      font-family: $font-family-sans-serif;
-      font-weight: normal;
-      color: $stone;
-    }
-  }
-
-  .ginput_complex, .gfield_time_hour, .gfield_time_minute {
-    label {
-      font-family: $font-family-sans-serif;
-      font-weight: 300;
-      color: $stone;
-    }
-  }
-
-  .gfield_checkbox {
-    li label {
-      font-weight: normal;
-    }
-  }
-
-  textarea, input[type=text], input[type=email], input[type=password], input[type=number], input[type=password] {
-    border: 1px solid $pearl;
-    border-radius: 3px;
-    font-family: $font-family-sans-serif;
-  }
-
-  .gform_footer {
-    input.button {
-      @extend .btn-default;
-    }
-  }
+.small-content {
+  // border: 1px solid red;
 }
+
+.field-type-name-wrap .ninja-forms-field {
+  // border: 1px solid blue;
+}
+
+.ninja-forms-field {
+  border: 1px solid #C3C6CC;
+  border-radius: 3px;
+  font-family: Lato, sans-serif;
+  padding: 5px 4px;
+  width: 50%;
+}
+
+.label-above .nf-field-element, .label-below .nf-field-element {
+  margin: 0;
+  width: 70%;
+}
+
+.nf-field-element {
+  text-align: left;
+}
+
+.field-wrap label {
+  display: inline-block;
+  margin: 0;
+  font-family: Lato,sans-serif;
+  font-weight: 400;
+  color: #5D6066;
+}
+
+.nf-error-msg, .ninja-forms-req-symbol {
+  // color: #C3C6CC;
+  font-weight: 400;
+}
+
+.nf-form-fields-required {
+  display: none;
+}
+
+.field-wrap input[type=button] {
+  color: #FFF;
+  border-radius: 0px;
+  background-color: #98A942;
+  border-color: transparent;
+  padding: 5px 10px;
+  // margin: 0 16px 0 0;
+}
+
+// Gravity Forms
+// .gform_wrapper {
+//   .top_label {
+//     li.gfield.gfield {
+//       margin-bottom: 1.5em;
+//     }
+//
+//     .gfield_label {
+//       margin: 0;
+//       font-family: $font-family-sans-serif;
+//       font-weight: normal;
+//       color: $stone;
+//     }
+//   }
+//
+//   .ginput_complex, .gfield_time_hour, .gfield_time_minute {
+//     label {
+//       font-family: $font-family-sans-serif;
+//       font-weight: 300;
+//       color: $stone;
+//     }
+//   }
+//
+//   .gfield_checkbox {
+//     li label {
+//       font-weight: normal;
+//     }
+//   }
+//
+//   textarea, input[type=text], input[type=email], input[type=password], input[type=number], input[type=password] {
+//     border: 1px solid $pearl;
+//     border-radius: 3px;
+//     font-family: $font-family-sans-serif;
+//   }
+//
+//   .gform_footer {
+//     input.button {
+//       @extend .btn-default;
+//     }
+//   }
+// }

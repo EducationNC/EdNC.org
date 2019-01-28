@@ -214,7 +214,7 @@ use Roots\Sage\Titles;
 
 	.large-content {
 		padding: 0em;
-		width: 50%;
+		width: 45%;
 		height: 100%;
 		display: inline-block;
 	 	text-align: left;
@@ -236,12 +236,14 @@ use Roots\Sage\Titles;
 
 	.small-content {
 		padding: 0em;
-		width: 50%;
+		width: 47%;
 		display: inline-block;
 		/* border: 1px solid green; */
 	}
-	.content-box {
-		padding: 1em;
+
+
+	.content-box h2 {
+		margin: 0;
 	}
 
 	.content-box p {
@@ -318,7 +320,7 @@ use Roots\Sage\Titles;
 	</div>
 	<div class="small-content">
 		<div class="content-box">
-			<?php gravity_form(9, false, false, false, '', true, 12); ?>
+			<?php the_content(); ?>
 		</div>
 	</div>
 </div>

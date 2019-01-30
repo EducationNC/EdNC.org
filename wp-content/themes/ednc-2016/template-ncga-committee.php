@@ -16,7 +16,12 @@ if (is_page('senate-appropriations-on-education-higher-education-committee')) {
 } elseif (is_page('house-education-k-12-committee')) {
   $meta_key = 'education_k-12';
   $leader_values = array('Co-Chairman', 'Co-Chair', 'Chair', 'Vice Chair', 'Vice Chairman');
+} elseif (is_page('community-college-committee')) {
+  $meta_key = 'community_college_committee';
+  $leader_values = array('Co-Chairman', 'Co-Chair', 'Chair', 'Vice Chair', 'Vice Chairman');
 }
+
+
 
 ?>
 
@@ -46,7 +51,7 @@ if (is_page('senate-appropriations-on-education-higher-education-committee')) {
             );
 
             $leaders = new WP_Query($args); */
-			
+
 			add_filter( 'posts_orderby' , 'posts_orderby_lastname' );
 				$leaders = new WP_Query(
 					array (
@@ -94,8 +99,8 @@ if (is_page('senate-appropriations-on-education-higher-education-committee')) {
           );
 
           $members = new WP_Query($args);*/
-		  
-		  
+
+
 		   add_filter( 'posts_orderby' , 'posts_orderby_lastname' );
 				$members = new WP_Query(
 					array (
@@ -110,7 +115,7 @@ if (is_page('senate-appropriations-on-education-higher-education-committee')) {
 						  )
 						)
 					)
-				);	
+				);
 
           if ($members->have_posts()) : while ($members->have_posts()) : $members->the_post(); ?>
 
@@ -133,6 +138,7 @@ if (is_page('senate-appropriations-on-education-higher-education-committee')) {
           <ul>
             <li><a href="/ncga-education-committees/house-education-k-12-committee/">Education K-12</a></li>
             <li><a href="/ncga-education-committees/house-education-appropriations-committee/">Appropriations Subcommittee on Education</a></li>
+            <li><a href="/ncga-education-committees/community-college-committee/">Community College Committee</a></li>
           </ul>
           <h4>Senate Committees</h4>
           <ul>
